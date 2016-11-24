@@ -1,9 +1,9 @@
-package io.prictice;
+package basic.io;
 
 import java.io.Console;
 import java.util.Arrays;
 
-public class ConsoleTest {
+public class ConsoleInputAndOutput {
     public static void main(String[] args) {
         Console c = System.console();
         if (c == null) {

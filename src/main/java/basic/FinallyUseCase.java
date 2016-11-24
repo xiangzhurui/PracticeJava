@@ -1,6 +1,6 @@
 package basic;
 
-public class FinallyTest {
+public class FinallyUseCase {
     public static int testFinally() {
         int a = 1;
         try {

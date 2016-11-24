@@ -3,7 +3,7 @@ package basic;
 import java.io.UnsupportedEncodingException;
 import java.util.Base64;
 
-public class Base64Test {
+public class Base64UseCase {
 
     public static void main(String[] args) throws UnsupportedEncodingException {
         final Base64.Decoder decoder = Base64.getDecoder();

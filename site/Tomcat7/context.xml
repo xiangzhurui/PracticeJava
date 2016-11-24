@@ -33,9 +33,9 @@
        auth="Container"
        type="javax.sql.DataSource"
        driverClassName="com.mysql.jdbc.Driver"
-       url="jdbc:mysql://10.0.60.243:3306/sts_db?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false"
+       url="jdbc:mysql://127.0.0.1:3306/practicedb?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false"
        username="root"
-       password="gcstsmysql"
+       password="123123"
        maxActive="1000"
        maxIdle="100"
        maxWait="10000" />

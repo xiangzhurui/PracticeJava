@@ -3,8 +3,8 @@ package basic;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class OtherTest {
-	private static final  Logger log = LoggerFactory.getLogger(OtherTest.class);
+public class Slf4jUseCase {
+	private static final  Logger log = LoggerFactory.getLogger(Slf4jUseCase.class);
 	public static void main(String[] args) {
 		  log.error("error");
 	      log.debug("debug");

@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class PropertiesUtil {
+public class PropertiesUseCase {
 	
 	public static Properties getProperties(String filePath) throws IOException{
 		Properties properties = new Properties();
