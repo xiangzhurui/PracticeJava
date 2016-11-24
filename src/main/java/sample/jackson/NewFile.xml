@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<customerId>customerId</customerId>
+	<name>name</name>
+	<gender>gender</gender>
+	<birthday>birthday</birthday>
+	<age>age</age>
+	<idNo>idNo</idNo>
+	<idType>idType</idType>
+	<mobilePhone>mobilePhoneTest</mobilePhone>
+	<addresses>
+		<addresses>
+			<zipCode>zip111</zipCode>
+			<province>prsff</province>
+			<distinct>distinct</distinct>
+			<city>city</city>
+		</addresses>
+	</addresses>
+</root>
