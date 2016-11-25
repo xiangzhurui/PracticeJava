@@ -26,7 +26,7 @@
 	<!--然后定义logger，只有定义了logger并引入的appender，appender才会生效 -->
 	<loggers>
 		<!--建立一个默认的root的logger -->
-		<root level="DEBUG">
+		<root level="INFO">
 			<!-- <appender-ref ref="RollingFileLog" /> -->
 			<appender-ref ref="ConsoleLog" />
 		</root>
