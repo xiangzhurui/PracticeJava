@@ -89,7 +89,8 @@
       <groupId>org.thymeleaf</groupId>
       <artifactId>thymeleaf-spring4</artifactId>
       <version>3.0.0.RELEASE</version>
-    </dependency><!-- 常用工具类库 -->
+    </dependency>
+    <!-- 工具类库 -->
     <dependency>
       <groupId>joda-time</groupId>
       <artifactId>joda-time</artifactId>
@@ -145,6 +146,7 @@
       <artifactId>jsch</artifactId>
       <version>0.1.54</version>
     </dependency>
+    <!-- /工具类库 -->
     <!-- JavaMail API - http://www.oracle.com/technetwork/java/javamail/faq/index.html -->
     <!-- <dependency>
       <groupId>javax.mail</groupId>
@@ -178,25 +180,17 @@
       <version>3.0.0</version>
       <scope>provided</scope>
     </dependency>
+    <!-- JSTL API -->
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>jstl</artifactId>
       <version>1.2</version>
     </dependency>
+    <!-- Apache hosts the Apache Standard Taglib, an implementation of the JSP Standard Tag Library (JSTL) specification. -->
     <dependency>
-      <groupId>org.glassfish.web</groupId>
-      <artifactId>jstl-impl</artifactId>
-      <version>1.2</version>
-      <exclusions>
-        <exclusion>
-          <groupId>javax.servlet</groupId>
-          <artifactId>servlet-api</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>javax.servlet.jsp</groupId>
-          <artifactId>jsp-api</artifactId>
-        </exclusion>
-      </exclusions>
+      <groupId>org.apache.taglibs</groupId>
+      <artifactId>taglibs-standard-impl</artifactId>
+      <version>1.2.5</version>
     </dependency>
     <dependency>
       <groupId>javax.jms</groupId>

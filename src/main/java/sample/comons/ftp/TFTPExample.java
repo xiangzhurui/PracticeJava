@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package sample.comons.net;
+package sample.comons.ftp;
 
 import java.io.File;
 import java.io.FileInputStream;
