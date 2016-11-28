@@ -1,8 +1,8 @@
 package design.patterns.singleton;
 
 public enum EnumSingleton {
-	INSTANCE;
-	public EnumSingleton getInstance() {
-		return INSTANCE;
-	}
+    INSTANCE;
+    public EnumSingleton getInstance() {
+        return INSTANCE;
+    }
 }

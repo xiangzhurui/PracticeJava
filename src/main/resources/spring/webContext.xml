@@ -9,7 +9,7 @@
     <mvc:resources location="/public-resources/" mapping="/resources/**"></mvc:resources>
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
-        <property name="prefix" value="/WEB-INF/JSP/"></property>
+        <property name="prefix" value="/WEB-INF/jsp/"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
 </beans>

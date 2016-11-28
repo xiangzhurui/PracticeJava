@@ -8,7 +8,6 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 /**
- * ����SqlSessionFactory��ö�ٵ���
  * 
  * @author XZR
  * @version 2016.07.28
