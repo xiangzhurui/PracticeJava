@@ -4,6 +4,7 @@
   <groupId>xzr.practice</groupId>
   <artifactId>PracticeJava</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <jdk.version>1.8</jdk.version>
@@ -226,5 +227,4 @@
       </plugin>
     </plugins>
   </build>
-  <packaging>war</packaging>
 </project>

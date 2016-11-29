@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Hello World!</title>
-<spring:url value="/resources/bootstrap/3.3.7/css/bootstrap.min.css" var="bootstrapCss" />
+<spring:url value="/resources/bootstrap/3.3.7/css/bootstrap.css" var="bootstrapCss" />
 <link href="${bootstrapCss}" rel="stylesheet" />
 </head>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -61,8 +61,8 @@
     <p>© xzr 2016</p>
   </footer>
 </div>
-<spring:url value="/resources/bootstrap/3.3.7/css/bootstrap.min.js" var="bootstrapJs" />
-<spring:url value="/resources/jQuery/3.1.0/jquery-3.1.0.min.js" var="jQueryJs"/>
+<spring:url value="/resources/bootstrap/3.3.7/js/bootstrap.js" var="bootstrapJs" />
+<spring:url value="/resources/jQuery/3.1.0/jquery-3.1.0.js" var="jQueryJs"/>
 <script src="${coreJs}"></script>
 <script src="${jQueryJs}"></script>
 </body>

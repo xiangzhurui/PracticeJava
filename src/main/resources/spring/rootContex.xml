@@ -24,6 +24,6 @@
     <property name="mapperLocations" value="classpath:framework/mybatis/dao/mapper/*.xml"/>
   </bean>
   
-  <mybatis-spring:scan base-package="framework.mybatis" />
+  <mybatis-spring:scan base-package="framework.mybatis.dao" />
   <tx:annotation-driven />
 </beans>
