@@ -89,7 +89,7 @@
     <dependency>
       <groupId>org.thymeleaf</groupId>
       <artifactId>thymeleaf-spring4</artifactId>
-      <version>3.0.0.RELEASE</version>
+      <version>3.0.2.RELEASE</version>
     </dependency>
     <!-- 工具类库 -->
     <dependency>
@@ -213,6 +213,11 @@
       <type>maven-plugin</type>
     </dependency>
 	<!-- /其他 -->
+	<dependency>
+	  <groupId>org.thymeleaf</groupId>
+	  <artifactId>thymeleaf</artifactId>
+	  <version>3.0.2.RELEASE</version>
+	</dependency>
   </dependencies>
   <build>
     <plugins>
