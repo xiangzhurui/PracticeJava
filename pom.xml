@@ -4,6 +4,7 @@
   <groupId>xzr.practice</groupId>
   <artifactId>PracticeJava</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <jdk.version>1.8</jdk.version>
@@ -88,7 +89,7 @@
     <dependency>
       <groupId>org.thymeleaf</groupId>
       <artifactId>thymeleaf-spring4</artifactId>
-      <version>3.0.0.RELEASE</version>
+      <version>3.0.2.RELEASE</version>
     </dependency>
     <!-- 工具类库 -->
     <dependency>
@@ -212,6 +213,11 @@
       <type>maven-plugin</type>
     </dependency>
 	<!-- /其他 -->
+	<dependency>
+	  <groupId>org.thymeleaf</groupId>
+	  <artifactId>thymeleaf</artifactId>
+	  <version>3.0.2.RELEASE</version>
+	</dependency>
   </dependencies>
   <build>
     <plugins>
@@ -226,5 +232,4 @@
       </plugin>
     </plugins>
   </build>
-  <packaging>war</packaging>
 </project>
