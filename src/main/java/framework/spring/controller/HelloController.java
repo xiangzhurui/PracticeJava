@@ -11,4 +11,9 @@ public class HelloController {
 	public String getHello() {
 		return "hello/hello";
 	}
+	
+	@RequestMapping("login")
+	public String login(){
+	    return "index";
+	}
 }

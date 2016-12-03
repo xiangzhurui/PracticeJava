@@ -16,6 +16,8 @@ import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
 
+import basic.io.FileTransfer;
+
 /**
  * 使用SFTP协议上传下载
  * 
@@ -38,7 +40,7 @@ public class SftpClient implements FileTransfer {
     static {
         WEBINFPath = SftpClient.class.getResource("").getPath();
         WEBINFPath = WEBINFPath.substring(0, WEBINFPath.lastIndexOf("classes"));
-        String propPath = SftpClient.class.getResource("/cn/com/sinosoft/ulic/dataclean/sftp/sftp.properties").getFile();
+        String propPath = SftpClient.class.getResource("/sftp.properties").getFile();
         log.info("FTP信息配置得位置:[{}]", propPath);
         File file = new File(propPath);
         InputStream inStream = null;
@@ -124,7 +126,6 @@ public class SftpClient implements FileTransfer {
      * 上传localUpload目录下名为 [String fileName]的文件,<br/>
      * 此方法需先创建本地文件目录
      * 
-     * @see cn.com.sinosoft.ulic.dataclean.sftp.FileTransfer#uploadFile(java.lang.String)
      */
     @Override
     public boolean uploadFile(String fileName) {
@@ -193,7 +194,6 @@ public class SftpClient implements FileTransfer {
     /**
      * 下载文件中的所有csv文件，并删除远端文件
      * 
-     * @see cn.com.sinosoft.ulic.dataclean.sftp.FileTransfer#downloadDir()
      */
     @Override
     public boolean downloadDir() {
