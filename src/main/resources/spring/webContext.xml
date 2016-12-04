@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
-  xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+  xsi:schemaLocation="http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
   <context:component-scan base-package="framework.spring.controller"></context:component-scan>
   <mvc:annotation-driven></mvc:annotation-driven>
   <mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
   <mvc:resources location="/media/" mapping="/media/**"></mvc:resources>
+  <mvc:resources location="/dist/" mapping="/dist/**"></mvc:resources>
+  <mvc:resources location="/plugins/" mapping="/plugins/**"></mvc:resources>
 <!--   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
     <property name="prefix" value="/WEB-INF/jsp/"></property>
@@ -25,6 +28,6 @@
   <bean id="templateResolver" class="org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver">
     <property name="prefix" value="/WEB-INF/thymeleaf/" />
     <property name="suffix" value=".html" />
-    <property name="templateMode" value="HTML5" />
+    <property name="templateMode" value="HTML" />
   </bean>
 </beans>

@@ -62,7 +62,7 @@
   </footer>
 </div>
 <spring:url value="/resources/bootstrap/3.3.7/js/bootstrap.js" var="bootstrapJs" />
-<spring:url value="/resources/jQuery/3.1.0/jquery-3.1.0.js" var="jQueryJs"/>
+<spring:url value="/resources/jquery/3.1.0/jquery-3.1.0.js" var="jQueryJs"/>
 <script src="${coreJs}"></script>
 <script src="${jQueryJs}"></script>
 </body>

@@ -3,7 +3,7 @@ package framework.spring.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller
+@Controller(value="WebcomeIndexController")
 @RequestMapping(value = "/")
 public class IndexController {
 
