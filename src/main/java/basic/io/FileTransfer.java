@@ -2,6 +2,7 @@ package basic.io;
 
 import java.io.File;
 import java.util.List;
+import java.util.Properties;
 
 /**
  * 文件上传下载接口
@@ -10,49 +11,86 @@ import java.util.List;
  *
  */
 public interface FileTransfer {
-    /**
-     * 上传文件
-     * 
-     * @param file
-     *            本地文件
-     * @return
-     */
 
-    public boolean uploadFile(File file);
+	/**
+	 * @param localFile
+	 * @param remotePath
+	 * @return
+	 */
+	public boolean uploadFile(File localFile, String remotePath);
 
-    /**
-     * 上传文件
-     * 
-     * @param fileName
-     *            文件名
-     * @return
-     */
-    public boolean uploadFile(String fileName);
+	/**
+	 * @param localPath
+	 * @param remotePath
+	 * @return
+	 */
+	public boolean uploadFile(String localPath, String remotePath);
 
-    /**
-     * 下载文件file
-     * 
-     * @param file
-     *            远程文件
-     * @return
-     */
-    public boolean downloadFile(File file);
+	/**
+	 * @param localFile
+	 * @param remotePath
+	 * @return
+	 */
+	public boolean uploadAllInDir(File localFile, String remotePath);
 
-    /**
-     * 下载文件夹下的所有文件
-     * 
-     * @param file
-     *            远程文件目录
-     * @return
-     */
-    public boolean downloadDir();
+	/**
+	 * @param localPath
+	 * @param remotePath
+	 * @return
+	 */
+	public boolean uploadAllInDir(String localPath, String remotePath);
 
-    /**
-     * 列出目录下得所有文件
-     * 
-     * @param file
-     *            远程文件目录
-     * @return
-     */
-    public List<File> lsFiles(File file);
+	/**
+	 * @param localFile
+	 * @param remotePath
+	 * @return
+	 */
+	public boolean downloadFile(File localFile, String remotePath);
+
+	/**
+	 * @param localPath
+	 * @param remotePath
+	 * @return
+	 */
+	public boolean downloadFile(String localPath, String remotePath);
+
+	/**
+	 * @param localDirPath
+	 * @param remoteDirPath
+	 * @return
+	 */
+	public boolean downloadAllInDir(String localDirPath, String remoteDirPath);
+
+	/**
+	 * @param localDirFile
+	 * @param remoteDirPath
+	 * @return
+	 */
+	public boolean downloadAllInDir(File localDirFile, String remoteDirPath);
+
+	/**
+	 * 列出远端所有文件
+	 * 
+	 * @param remoteDirPath
+	 * @return
+	 */
+	public List<String> lsAllFiles(String remoteDirPath);
+
+	/**
+	 * 登录认证方法
+	 * 
+	 * @return
+	 */
+	public boolean authenticate();
+
+	public boolean authenticate(Properties pros);
+
+	public boolean authenticate(String host, int port, String username, String password);
+
+	/**
+	 * 断开连接
+	 * 
+	 * @return
+	 */
+	public boolean disConnect();
 }

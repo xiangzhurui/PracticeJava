@@ -16,7 +16,6 @@ import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
 
-import basic.io.FileTransfer;
 
 /**
  * 使用SFTP协议上传下载
@@ -24,7 +23,7 @@ import basic.io.FileTransfer;
  * @author XiangZhuRui
  *
  */
-public class SftpClient implements FileTransfer {
+public class SftpClient {
     private static final Logger log = LoggerFactory.getLogger(SftpClient.class);
     private static String       host;
     private static int          port;
@@ -69,7 +68,6 @@ public class SftpClient implements FileTransfer {
     public SftpClient() {
         super();
     }
-    @Override
     public boolean uploadFile(File file) {
         log.info("文件上传,[{}]", file);
         Session session = null;
@@ -127,7 +125,6 @@ public class SftpClient implements FileTransfer {
      * 此方法需先创建本地文件目录
      * 
      */
-    @Override
     public boolean uploadFile(String fileName) {
         log.info("文件上传,文件名为[{}]", fileName);
         Session session = null;
@@ -185,7 +182,6 @@ public class SftpClient implements FileTransfer {
         }
     }
 
-    @Override
     public boolean downloadFile(File file) {
 
         return false;
@@ -195,7 +191,6 @@ public class SftpClient implements FileTransfer {
      * 下载文件中的所有csv文件，并删除远端文件
      * 
      */
-    @Override
     public boolean downloadDir() {
         log.info("登录信息,用户名：{},密码：{},端口号：{}", userName, password, port);
         Session session = null;
@@ -269,7 +264,6 @@ public class SftpClient implements FileTransfer {
         }
     }
 
-    @Override
     public List<File> lsFiles(File file) {
         return null;
     }
