@@ -1,6 +1,9 @@
 package basic.io;
 
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.SocketException;
 import java.util.ArrayList;
@@ -25,12 +28,33 @@ public class FtpImplFileTransfer implements FileTransfer {
 	private int			port;
 	private String		username;
 	private String		password;
-	private FTPClient	ftp;
+	private FTPClient	ftpClient;
 
 	@Override
 	public boolean uploadFile(File localFile, String remotePath) {
-		// TODO Auto-generated method stub
-		return false;
+		log.info("开始上传文件");
+		BufferedInputStream buffIn = null;
+		try {
+			ftpClient.changeWorkingDirectory(remotePath);
+			buffIn = new BufferedInputStream(new FileInputStream(localFile));
+			ftpClient.storeFile(localFile.getName(), buffIn);
+			return true;
+		} catch (FileNotFoundException e1) {
+			log.error("上传失败,本地文件不存在。", e1);
+			return false;
+		} catch (IOException e) {
+			log.error("上传失败", e);
+			return false;
+		} finally {
+			try {
+				if (buffIn != null) {
+					buffIn.close();
+				}
+			} catch (Exception e) {
+				log.error("", e);
+			}
+		}
+
 	}
 
 	@Override
@@ -77,21 +101,21 @@ public class FtpImplFileTransfer implements FileTransfer {
 
 	@Override
 	public List<String> lsAllFiles(String remoteDirPath) {
-		List<String> paths=new  ArrayList<String>();
+		List<String> paths = new ArrayList<String>();
 		String directory = null;
 		if (remoteDirPath.startsWith("/") && remoteDirPath.endsWith("/")) {
 			directory = remoteDirPath;
 		}
 		// 更换目录到当前目录
 		try {
-			ftp.changeWorkingDirectory(directory);
+			ftpClient.changeWorkingDirectory(directory);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		FTPFile[] files = null;
 		try {
-			files = ftp.listFiles();
+			files = ftpClient.listFiles();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -108,13 +132,13 @@ public class FtpImplFileTransfer implements FileTransfer {
 
 	@Override
 	public boolean authenticate() {
-		ftp = new FTPClient();
+		ftpClient = new FTPClient();
 		try {
-			ftp.connect(host, port);
-			if (FTPReply.isPositiveCompletion(this.ftp.getReplyCode())) {
-				if (ftp.login(username, password)) {
-					ftp.setControlEncoding("UTF-8");
-					ftp.login(username, password);
+			ftpClient.connect(host, port);
+			if (FTPReply.isPositiveCompletion(this.ftpClient.getReplyCode())) {
+				if (ftpClient.login(username, password)) {
+					ftpClient.setControlEncoding("UTF-8");
+					ftpClient.login(username, password);
 					log.info("FTP登录成功");
 					log.info("FTP连接成功");
 					return true;
@@ -147,9 +171,9 @@ public class FtpImplFileTransfer implements FileTransfer {
 
 	@Override
 	public boolean disConnect() {
-		if (ftp.isConnected()) {
+		if (ftpClient.isConnected()) {
 			try {
-				ftp.disconnect();
+				ftpClient.disconnect();
 				log.info("FTP断开成功");
 				return true;
 			} catch (IOException e) {
