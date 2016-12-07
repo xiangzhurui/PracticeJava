@@ -156,7 +156,19 @@ public class SftpImplFileTransfer implements FileTransfer {
 			return false;
 		}
 
-	};
+	}
+
+	@Override
+	public boolean deleteRemoteFile(String remotePath) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteAllInDir(String remoteDirPath) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 	@Override
 	public List<String> lsAllFiles(String remoteDirPath) {
@@ -178,7 +190,7 @@ public class SftpImplFileTransfer implements FileTransfer {
 				log.info("{}", lsEntry.getFilename());
 				if (!lsEntry.getAttrs().isDir()) {
 					try {
-						String s= lsEntry.getFilename();
+						String s = lsEntry.getFilename();
 						fileList.add(s);
 					} catch (Exception e) {
 						log.error("下载文件{}失败", lsEntry.getFilename());
@@ -284,4 +296,5 @@ public class SftpImplFileTransfer implements FileTransfer {
 	public SftpImplFileTransfer() {
 		super();
 	}
+
 }

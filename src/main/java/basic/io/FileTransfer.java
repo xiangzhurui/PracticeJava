@@ -69,6 +69,22 @@ public interface FileTransfer {
 	public boolean downloadAllInDir(File localDirFile, String remoteDirPath);
 
 	/**
+	 * 删除远程文件
+	 * 
+	 * @param remotePath 远程文件路径
+	 * @return
+	 */
+	public boolean deleteRemoteFile(String remotePath);
+
+	/**
+	 * 删除远程目录下的所有文件
+	 * 
+	 * @param remoteDirPath 远程目录路径
+	 * @return
+	 */
+	public boolean deleteAllInDir(String remoteDirPath);
+
+	/**
 	 * 列出远端所有文件
 	 * 
 	 * @param remoteDirPath
