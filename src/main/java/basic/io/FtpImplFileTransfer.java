@@ -176,21 +176,20 @@ public class FtpImplFileTransfer implements FileTransfer {
 		try {
 			ftpClient.changeWorkingDirectory(directory);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		FTPFile[] files = null;
 		try {
 			files = ftpClient.listFiles();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		for (FTPFile file : files) {
 			if (file.isFile()) {
 				paths.add(directory + file.getName());
 			} else if (file.isDirectory()) {
-				lsAllFiles(directory + file.getName() + "/");
+				List<String> paths0 = lsAllFiles(directory + file.getName() + "/");
+				paths.addAll(paths0);
 			}
 		}
 		return paths;
@@ -220,7 +219,6 @@ public class FtpImplFileTransfer implements FileTransfer {
 				log.error("ftp server [{}] refused connection!", host);
 				return false;
 			}
-
 		} catch (SocketException e) {
 			log.error("", e);
 			return false;
