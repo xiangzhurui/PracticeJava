@@ -15,7 +15,7 @@ import java.util.Properties;
  * @author XiangZhuRui
  *
  */
-public class DataSourceUtil {
+public class JdbcDataSourceUtil {
 	private static String	driverClassName;
 	private static String	url;
 	private static String	username;
@@ -49,7 +49,7 @@ public class DataSourceUtil {
 	}
 
 	private static void setJdbcProperties() {
-		File file = new File(DataSourceUtil.class.getResource("/jdbc.properites").getFile());
+		File file = new File(JdbcDataSourceUtil.class.getResource("/jdbc.properites").getFile());
 		InputStream inStream = null;
 		Properties p = new Properties();
 		try {
