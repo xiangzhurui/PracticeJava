@@ -1,4 +1,4 @@
-package framework.spring.controller.account;
+package framework.spring.web.controller.account;
 
 import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
