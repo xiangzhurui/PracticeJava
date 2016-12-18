@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config.dtd">
+<!DOCTYPE generatorConfiguration PUBLIC 
+  "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" 
+  "http://mybatis.org/dtd/mybatis-generator-config.dtd">
 <generatorConfiguration>
   <properties resource="properties/jdbc.properties" />
   <classPathEntry location="D:/Local/MavenRepository/mysql/mysql-connector-java/5.1.40/mysql-connector-java-5.1.40.jar"></classPathEntry>
@@ -9,10 +11,9 @@
     </commentGenerator>
     <jdbcConnection connectionURL="${jdbc.url}" driverClass="${jdbc.driverClassName}" password="${jdbc.password}"
       userId="${jdbc.username}" />
-    <javaModelGenerator targetPackage="framework.mybatis.entity" targetProject="PracticeJava/src/main/java" />
-    <sqlMapGenerator targetPackage="framework.mybatis.dao.mapper" targetProject="PracticeJava/src/main/java" />
-    <javaClientGenerator targetPackage="framework.mybatis.dao" targetProject="PracticeJava/src/main/java"
-      type="XMLMAPPER" />
+    <javaModelGenerator targetPackage="framework.mybatis.entity" targetProject="PracticeJava" />
+    <sqlMapGenerator targetPackage="framework.mybatis.dao.mapper.mysql" targetProject="PracticeJava" />
+    <javaClientGenerator targetPackage="framework.mybatis.dao" targetProject="PracticeJava" type="XMLMAPPER" />
     <table tableName="account" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
       enableSelectByExample="false" selectByExampleQueryId="false">
 			<!-- <columnOverride column="???" property="???" /> -->
