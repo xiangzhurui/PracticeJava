@@ -212,6 +212,9 @@ public class FtpImplFileTransfer implements FileTransfer {
 					ftpClient.setFileType(FTPClient.BINARY_FILE_TYPE);
 					return true;
 				} else {
+				    if(FTPReply.SERVICE_NOT_READY==this.ftpClient.getReplyCode()) {
+				        log.warn("FTP 服务未准备好。");
+				    }
 					log.info("登录[{}]失败", host);
 					return false;
 				}
