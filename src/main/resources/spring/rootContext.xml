@@ -2,7 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:jee="http://www.springframework.org/schema/jee"
   xmlns:context="http://www.springframework.org/schema/context"
-  xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring" xmlns:tx="http://www.springframework.org/schema/tx"
+  xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring" 
+  xmlns:tx="http://www.springframework.org/schema/tx"
   xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
 		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
 		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd
@@ -21,9 +22,8 @@
   </bean>
   <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
     <property name="dataSource" ref="dataSource"></property>
-    <property name="mapperLocations" value="classpath:framework/mybatis/dao/mapper/*.xml"/>
+    <property name="mapperLocations" value="classpath:framework/mybatis/dao/mapping/*.xml"/>
   </bean>
-  
   <mybatis-spring:scan base-package="framework.mybatis.dao" />
   <tx:annotation-driven />
 </beans>

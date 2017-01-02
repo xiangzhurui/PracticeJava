@@ -17,9 +17,9 @@ import framework.spring.service.account.AccountService;
 @Controller
 @RequestMapping("/account/register")
 public class AccountController {
-	final static Logger		log	= LoggerFactory.getLogger(AccountController.class);
+	final static Logger log = LoggerFactory.getLogger(AccountController.class);
 	@Autowired
-	private AccountService	accountservice;
+	private AccountService accountservice;
 
 	@RequestMapping(value = { "/", "" }, method = RequestMethod.GET)
 	public String showPage() {
@@ -28,9 +28,9 @@ public class AccountController {
 
 	@RequestMapping(value = { "/add", "/add/" }, method = RequestMethod.POST)
 	public String addAccount(@RequestParam("fullName") String fullName, @RequestParam("email") String email,
-	        @RequestParam("password") String password, Model mode) {
+			@RequestParam("password") String password, Model mode) {
 		log.info("全名:{},电子邮件:{},密码:{}", fullName, email, password);
-		Account			account=new Account(email, password);
+		Account account = new Account(email, password);
 		accountservice.add(account);
 		mode.addAttribute("message", "注册成功");
 		return "redirect:/account/login";

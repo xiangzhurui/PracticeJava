@@ -2,10 +2,12 @@ package framework.spring.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class PolicyService {
 
 	public List getInfoNameString(String ss) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
