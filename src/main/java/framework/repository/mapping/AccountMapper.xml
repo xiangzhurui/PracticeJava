@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="framework.mybatis.dao.AccountMapper">
-  <resultMap id="BaseResultMap" type="framework.mybatis.entity.Account">
+<mapper namespace="framework.repository.dao.AccountMapper">
+  <resultMap id="BaseResultMap" type="framework.repository.entity.Account">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="password" jdbcType="VARCHAR" property="password" />
@@ -19,13 +19,13 @@
     delete from account
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="framework.mybatis.entity.Account">
+  <insert id="insert" parameterType="framework.repository.entity.Account">
     insert into account (id, username, password
       )
     values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="framework.mybatis.entity.Account">
+  <insert id="insertSelective" parameterType="framework.repository.entity.Account">
     insert into account
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -50,7 +50,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="framework.mybatis.entity.Account">
+  <update id="updateByPrimaryKeySelective" parameterType="framework.repository.entity.Account">
     update account
     <set>
       <if test="username != null">
@@ -62,7 +62,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="framework.mybatis.entity.Account">
+  <update id="updateByPrimaryKey" parameterType="framework.repository.entity.Account">
     update account
     set username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR}

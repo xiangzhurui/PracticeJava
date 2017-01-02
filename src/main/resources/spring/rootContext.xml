@@ -11,7 +11,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
   <context:property-placeholder location="classpath:properties/*.properties" />
-  <context:component-scan base-package="framework.spring.service"></context:component-scan>
+  <context:component-scan base-package="framework.service"></context:component-scan>
   <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
     <property name="url" value="${jdbc.url}"></property>
     <property name="username" value="${jdbc.username}"></property>
@@ -22,8 +22,8 @@
   </bean>
   <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
     <property name="dataSource" ref="dataSource"></property>
-    <property name="mapperLocations" value="classpath:framework/mybatis/dao/mapping/*.xml"/>
+    <property name="mapperLocations" value="classpath:framework/repository/mapping/*.xml"/>
   </bean>
-  <mybatis-spring:scan base-package="framework.mybatis.dao" />
+  <mybatis-spring:scan base-package="framework.repository.dao" />
   <tx:annotation-driven />
 </beans>

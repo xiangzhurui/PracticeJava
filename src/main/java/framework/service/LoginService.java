@@ -1,6 +1,6 @@
-package framework.spring.service;
+package framework.service;
 
-import framework.mybatis.entity.Account;
+import framework.repository.entity.Account;
 
 public interface LoginService {
 	public Account getAccount(String username, String password);

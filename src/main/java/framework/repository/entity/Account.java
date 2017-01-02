@@ -1,4 +1,4 @@
-package framework.mybatis.entity;
+package framework.repository.entity;
 
 public class Account {
 	private Integer	id;

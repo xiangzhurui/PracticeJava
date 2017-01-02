@@ -1,6 +1,6 @@
-package framework.mybatis.dao;
+package framework.repository.dao;
 
-import framework.mybatis.entity.Account;
+import framework.repository.entity.Account;
 
 public interface AccountMapper {
     int deleteByPrimaryKey(Integer id);

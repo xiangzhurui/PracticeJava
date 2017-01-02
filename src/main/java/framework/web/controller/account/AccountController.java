@@ -1,4 +1,4 @@
-package framework.spring.web.controller.account;
+package framework.web.controller.account;
 
 import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
@@ -10,16 +10,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import framework.mybatis.entity.Account;
-import framework.spring.service.LoginService;
-import framework.spring.service.account.AccountService;
+import framework.repository.entity.Account;
+import framework.service.AccountService;
+import framework.service.LoginService;
 
 @Controller
-@RequestMapping("/account/register")
+@RequestMapping("account")
 public class AccountController {
 	final static Logger log = LoggerFactory.getLogger(AccountController.class);
 	@Autowired
-	private AccountService accountservice;
+	private AccountService accountService;
+	@Autowired
+	private LoginService loginService;
 
 	@RequestMapping(value = { "/", "" }, method = RequestMethod.GET)
 	public String showPage() {
@@ -31,13 +33,10 @@ public class AccountController {
 			@RequestParam("password") String password, Model mode) {
 		log.info("全名:{},电子邮件:{},密码:{}", fullName, email, password);
 		Account account = new Account(email, password);
-		accountservice.add(account);
+		accountService.add(account);
 		mode.addAttribute("message", "注册成功");
 		return "redirect:/account/login";
 	}
-
-	@Autowired
-	private LoginService loginService;
 
 	@RequestMapping(value = { "/login", "/login/" }, method = RequestMethod.POST)
 	public String login(@Param(value = "username") String username, @Param(value = "password") String password) {

@@ -1,11 +1,11 @@
-package framework.spring.service.impl;
+package framework.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import framework.mybatis.dao.AccountMapper;
-import framework.mybatis.entity.Account;
-import framework.spring.service.LoginService;
+import framework.repository.dao.AccountMapper;
+import framework.repository.entity.Account;
+import framework.service.LoginService;
 
 @Service
 public class LoginServiceImpl implements LoginService {

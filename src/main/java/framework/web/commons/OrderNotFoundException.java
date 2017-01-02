@@ -1,4 +1,4 @@
-package framework.spring.web.commons;
+package framework.web.commons;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

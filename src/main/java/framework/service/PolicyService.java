@@ -1,4 +1,4 @@
-package framework.spring.service;
+package framework.service;
 
 import java.util.List;
 
