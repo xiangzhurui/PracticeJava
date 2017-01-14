@@ -20,18 +20,19 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 使用FTP协议上传下载的工具类，依赖于 Apache Commons Net 库
+ * 使用FTP协议上传下载的工具类<br>
+ * 依赖于库： Apache Commons Net
  * 
  * @author XiangZhuRui
- *
+ * @version 2017.01.13
  */
 public class FtpImplFileTransfer implements FileTransfer {
-	final static Logger	log	= LoggerFactory.getLogger(FtpImplFileTransfer.class);
-	private String		host;
-	private int			port;
-	private String		username;
-	private String		password;
-	private FTPClient	ftpClient;
+	final static Logger log = LoggerFactory.getLogger(FtpImplFileTransfer.class);
+	private String host;
+	private int port;
+	private String username;
+	private String password;
+	private FTPClient ftpClient;
 
 	@Override
 	public boolean uploadFile(File localFile, String remotePath) {
@@ -43,10 +44,10 @@ public class FtpImplFileTransfer implements FileTransfer {
 			ftpClient.storeFile(localFile.getName(), buffIn);
 			return true;
 		} catch (FileNotFoundException e1) {
-			log.error("上传失败,本地文件不存在。", e1);
+			log.error("上传文件[{}]失败,本地文件不存在。", localFile, e1);
 			return false;
 		} catch (IOException e) {
-			log.error("上传失败", e);
+			log.debug("上传失败,文件[{}]上传到[{}]结果:[{}]", localFile, remotePath, e);
 			return false;
 		} finally {
 			try {
@@ -54,7 +55,7 @@ public class FtpImplFileTransfer implements FileTransfer {
 					buffIn.close();
 				}
 			} catch (Exception e) {
-				log.error("", e);
+				log.error("BufferedInputStream close failed.", e);
 			}
 		}
 
@@ -67,15 +68,23 @@ public class FtpImplFileTransfer implements FileTransfer {
 	}
 
 	@Override
-	public boolean uploadAllInDir(File localFile, String remotePath) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean uploadAllInDir(File localDir, String remotePath) {
+		if (localDir.isDirectory()) {
+			boolean b = false;
+			File[] localFiles = localDir.listFiles();
+			for (File f : localFiles) {
+				b = this.uploadFile(f, remotePath);
+			}
+			return b;
+		} else {
+			throw new IllegalArgumentException("参数错误");
+		}
 	}
 
 	@Override
-	public boolean uploadAllInDir(String localPath, String remotePath) {
-		File localFile = new File(localPath);
-		return this.uploadAllInDir(localFile, remotePath);
+	public boolean uploadAllInDir(String localDirPath, String remotePath) {
+		File localDir = new File(localDirPath);
+		return this.uploadAllInDir(localDir, remotePath);
 	}
 
 	@Override
@@ -116,20 +125,24 @@ public class FtpImplFileTransfer implements FileTransfer {
 
 	@Override
 	public boolean downloadFile(String localPath, String remotePath) {
-		// TODO Auto-generated method stub
-		return false;
+		File localFile = new File(localPath);
+		return this.downloadFile(localFile, remotePath);
 	}
 
 	@Override
 	public boolean downloadAllInDir(String localDirPath, String remoteDirPath) {
-		// TODO Auto-generated method stub
-		return false;
+		File localDirFile = new File(localDirPath);
+		return this.downloadAllInDir(localDirFile, remoteDirPath);
 	}
 
 	@Override
 	public boolean downloadAllInDir(File localDirFile, String remoteDirPath) {
-		// TODO Auto-generated method stub
-		return false;
+		List<String> files = this.lsAllFiles(remoteDirPath);
+		boolean b = false;
+		for (String remotePath : files) {
+			b = this.downloadFile(localDirFile, remotePath);
+		}
+		return b;
 	}
 
 	@Override
@@ -176,7 +189,7 @@ public class FtpImplFileTransfer implements FileTransfer {
 		try {
 			ftpClient.changeWorkingDirectory(directory);
 		} catch (IOException e) {
-			e.printStackTrace();
+			log.error("进入远端路径[{}]失败", remoteDirPath, e);
 		}
 		FTPFile[] files = null;
 		try {
@@ -212,9 +225,6 @@ public class FtpImplFileTransfer implements FileTransfer {
 					ftpClient.setFileType(FTPClient.BINARY_FILE_TYPE);
 					return true;
 				} else {
-				    if(FTPReply.SERVICE_NOT_READY==this.ftpClient.getReplyCode()) {
-				        log.warn("FTP 服务未准备好。");
-				    }
 					log.info("登录[{}]失败", host);
 					return false;
 				}
@@ -222,6 +232,7 @@ public class FtpImplFileTransfer implements FileTransfer {
 				log.error("ftp server [{}] refused connection!", host);
 				return false;
 			}
+
 		} catch (SocketException e) {
 			log.error("", e);
 			return false;
