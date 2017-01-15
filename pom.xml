@@ -175,12 +175,6 @@
       <groupId>com.fasterxml</groupId>
       <artifactId>jackson-xml-databind</artifactId>
       <version>0.6.2</version>
-      <exclusions>
-        <exclusion>
-          <groupId>javax.xml.stream</groupId>
-          <artifactId>stax-api</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -201,6 +195,12 @@
       <groupId>org.apache.poi</groupId>
       <artifactId>poi-ooxml-schemas</artifactId>
       <version>${poi.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>stax</groupId>
+          <artifactId>stax-api</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>com.jcraft</groupId>
@@ -268,6 +268,11 @@
     <!-- 其他 -->
     
     <!-- /其他 -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-beans</artifactId>
+      <version>${springframework.version}</version>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
