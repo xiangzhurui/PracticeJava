@@ -273,6 +273,11 @@
       <artifactId>spring-beans</artifactId>
       <version>${springframework.version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.glassfish.jersey.ext</groupId>
+      <artifactId>jersey-spring3</artifactId>
+      <version>${jersey2.version}</version>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
