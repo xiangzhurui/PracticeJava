@@ -69,19 +69,19 @@
       <version>2.1.1</version>
     </dependency>
     <!-- 应用框架 -->
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-jdbc</artifactId>
-      <version>${springframework.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-webmvc</artifactId>
-      <version>${springframework.version}</version>
-    </dependency>
+    
+    
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context-support</artifactId>
+      <version>${springframework.version}</version>
+    </dependency><dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-beans</artifactId>
+      <version>${springframework.version}</version>
+    </dependency><dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
       <version>${springframework.version}</version>
     </dependency>
     <dependency>
@@ -90,6 +90,10 @@
       <version>${springframework.version}</version>
     </dependency>
     <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>${springframework.version}</version>
+    </dependency><dependency>
       <groupId>org.mybatis</groupId>
       <artifactId>mybatis</artifactId>
       <version>3.4.2</version>
@@ -172,6 +176,10 @@
       <version>3.5</version>
     </dependency>
     <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.10</version>
+    </dependency><dependency>
       <groupId>com.fasterxml</groupId>
       <artifactId>jackson-xml-databind</artifactId>
       <version>0.6.2</version>
@@ -264,19 +272,6 @@
       <artifactId>javax.annotation-api</artifactId>
       <version>1.3</version>
       <scope>runtime</scope>
-    </dependency>
-    <!-- 其他 -->
-    
-    <!-- /其他 -->
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-beans</artifactId>
-      <version>${springframework.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.glassfish.jersey.ext</groupId>
-      <artifactId>jersey-spring3</artifactId>
-      <version>${jersey2.version}</version>
     </dependency>
   </dependencies>
   <build>
