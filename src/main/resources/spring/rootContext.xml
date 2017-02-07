@@ -25,8 +25,8 @@
         <!-- mybatis 分页插件 -->
         <bean class="com.github.pagehelper.PageInterceptor">
           <property name="properties">
-            <!--使用下面的方式配置参数，一行配置一个 -->
-            <value> dialect=mysql
+            <!-- 使用下面的方式配置参数，一行配置一个 -->
+            <value> helperDialect=mysql
             </value>
           </property>
         </bean>

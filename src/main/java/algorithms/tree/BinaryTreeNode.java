@@ -7,68 +7,71 @@ package algorithms.tree;
  *
  */
 public class BinaryTreeNode<T> {
-    private T value;
-    private BinaryTreeNode<T> leftChild;
-    private BinaryTreeNode<T> rightChild;
+	private T value;
+	private BinaryTreeNode<T> leftChild;
+	private BinaryTreeNode<T> rightChild;
 
-    public BinaryTreeNode(T value, BinaryTreeNode<T> leftChild, BinaryTreeNode<T> rightChild) {
-        super();
-        this.value = value;
-        this.leftChild = leftChild;
-        this.rightChild = rightChild;
-    }
+	public BinaryTreeNode(T value, BinaryTreeNode<T> leftChild, BinaryTreeNode<T> rightChild) {
+		super();
+		this.value = value;
+		this.leftChild = leftChild;
+		this.rightChild = rightChild;
+	}
 
-    public BinaryTreeNode() {
-        super();
-    }
+	public BinaryTreeNode() {
+		super();
+	}
 
-    /**
-     * 是否为根节点
-     * 
-     * @return
-     */
-    public boolean isRoot() {
-        return false;
-    }
+	/**
+	 * 是否为根节点
+	 * 
+	 * @return
+	 */
+	public boolean isRoot() {
+		return false;
+	}
 
-    /**
-     * 是否为叶子节点
-     * 
-     * @return
-     */
-    public boolean isLeaf() {
-        return false;
-    }
+	/**
+	 * 是否为叶子节点
+	 * 
+	 * @return
+	 */
+	public boolean isLeaf() {
+		if (this.leftChild == null && this.rightChild == null) {
+			return true;
+		}
+		return false;
+	}
 
-    /**
-     * 遍历
-     */
-    public void traverse() {
+	/**
+	 * 遍历
+	 */
+	public void traverse() {
 
-    }
+	}
 
-    public T getValue() {
-        return value;
-    }
+	public T getValue() {
+		return value;
+	}
 
-    public void setValue(T value) {
-        this.value = value;
-    }
+	public void setValue(T value) {
+		this.value = value;
+	}
 
-    public BinaryTreeNode<T> getLeftChild() {
-        return leftChild;
-    }
+	public BinaryTreeNode<T> getLeftChild() {
+		return leftChild;
+	}
 
-    public void setLeftChild(BinaryTreeNode<T> leftChild) {
-        this.leftChild = leftChild;
-    }
+	public void setLeftChild(BinaryTreeNode<T> leftChild) {
+		this.leftChild = leftChild;
+	}
 
-    public BinaryTreeNode<T> getRightChild() {
-        return rightChild;
-    }
+	public BinaryTreeNode<T> getRightChild() {
+		return rightChild;
+	}
 
-    public void setRightChild(BinaryTreeNode<T> rightChild) {
-        this.rightChild = rightChild;
-    }
+	public void setRightChild(BinaryTreeNode<T> rightChild) {
+		this.rightChild = rightChild;
+	}
 
 }
