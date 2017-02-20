@@ -14,6 +14,7 @@
     <jersey2.version>2.25</jersey2.version>
     <thymeleaf.version>3.0.3.RELEASE</thymeleaf.version>
     <poi.version>3.14</poi.version>
+    <dubbo.version>2.5.3</dubbo.version>
   </properties>
   <dependencies>
     <!-- 测试框架 -->
@@ -124,6 +125,17 @@
       <groupId>org.thymeleaf</groupId>
       <artifactId>thymeleaf-spring4</artifactId>
       <version>${thymeleaf.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>dubbo</artifactId>
+      <version>${dubbo.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <!-- JAX-RS & Jersey2 -->
     <dependency>

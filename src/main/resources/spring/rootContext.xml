@@ -2,11 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:context="http://www.springframework.org/schema/context" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
   xmlns:tx="http://www.springframework.org/schema/tx" xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+  xmlns:util="http://www.springframework.org/schema/util"
   xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
 		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
-		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
   <context:property-placeholder location="classpath:properties/*.properties" />
   <context:component-scan base-package="framework.service"></context:component-scan>
   <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
@@ -17,6 +19,9 @@
     <property name="maxIdle" value="${dbcp2.maxIdle}"></property>
     <property name="minIdle" value="${dbcp2.minIdle}"></property>
   </bean>
+  <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <property name="dataSource" ref="dataSource" />
+  </bean>
   <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
     <property name="dataSource" ref="dataSource"></property>
     <property name="mapperLocations" value="classpath:framework/repository/mapping/*.xml" />
@@ -26,8 +31,7 @@
         <bean class="com.github.pagehelper.PageInterceptor">
           <property name="properties">
             <!-- 使用下面的方式配置参数，一行配置一个 -->
-            <value> helperDialect=mysql
-            </value>
+            <value>helperDialect=mysql</value>
           </property>
         </bean>
       </array>

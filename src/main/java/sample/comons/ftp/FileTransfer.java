@@ -1,4 +1,4 @@
-package basic.io;
+package sample.comons.ftp;
 
 import java.io.File;
 import java.util.List;
