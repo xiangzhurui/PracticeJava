@@ -19,7 +19,7 @@
     </mvc:interceptor>
     <mvc:interceptor>
       <mvc:mapping path="/secure/*" />
-      <bean class="org.example.SecurityInterceptor" />
+      <bean class="framework.web.LoginInterceptor" />
     </mvc:interceptor>
   </mvc:interceptors>
   <!-- <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
