@@ -11,6 +11,7 @@
     <slf4j.version>1.7.21</slf4j.version>
     <lo4j2.version>2.7</lo4j2.version>
     <springframework.version>4.3.5.RELEASE</springframework.version>
+    <aspectj.version>1.8.10</aspectj.version>
     <jersey2.version>2.25</jersey2.version>
     <thymeleaf.version>3.0.3.RELEASE</thymeleaf.version>
     <poi.version>3.14</poi.version>
@@ -297,6 +298,21 @@
       <groupId>org.mybatis.caches</groupId>
       <artifactId>mybatis-ehcache</artifactId>
       <version>1.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjrt</artifactId>
+      <version>${aspectj.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjtools</artifactId>
+      <version>${aspectj.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>${aspectj.version}</version>
     </dependency>
   </dependencies>
   <build>
