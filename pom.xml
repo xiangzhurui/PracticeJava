@@ -10,12 +10,13 @@
     <jdk.version>1.8</jdk.version>
     <slf4j.version>1.7.21</slf4j.version>
     <lo4j2.version>2.7</lo4j2.version>
-    <springframework.version>4.3.5.RELEASE</springframework.version>
+    <springframework.version>4.3.7.RELEASE</springframework.version>
     <aspectj.version>1.8.10</aspectj.version>
     <jersey2.version>2.25</jersey2.version>
     <thymeleaf.version>3.0.3.RELEASE</thymeleaf.version>
     <poi.version>3.14</poi.version>
     <dubbo.version>2.5.3</dubbo.version>
+    <mysql-connector-java.version>5.1.41</mysql-connector-java.version>
   </properties>
   <dependencies>
     <!-- 测试框架 -->
@@ -28,7 +29,7 @@
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
-      <version>1.10.19</version>
+      <version>2.7.18</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -62,7 +63,7 @@
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.40</version>
+      <version>${mysql-connector-java.version}</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
