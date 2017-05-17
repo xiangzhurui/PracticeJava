@@ -14,8 +14,12 @@
     <javaModelGenerator targetPackage="framework.mybatis.entity" targetProject="PracticeJava" />
     <sqlMapGenerator targetPackage="framework.mybatis.dao.mapper.mysql" targetProject="PracticeJava" />
     <javaClientGenerator targetPackage="framework.mybatis.dao" targetProject="PracticeJava" type="XMLMAPPER" />
-    <table tableName="account" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-      enableSelectByExample="false" selectByExampleQueryId="false">
+    <table tableName="new_table" 
+           enableCountByExample="false" 
+           enableUpdateByExample="false" 
+           enableDeleteByExample="false"
+           enableSelectByExample="false" 
+           selectByExampleQueryId="false">
 			<!-- <columnOverride column="???" property="???" /> -->
     </table>
   </context>
