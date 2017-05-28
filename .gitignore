@@ -5,6 +5,7 @@
 
 # mac
 .DS_Store
+.DS_Store?
 *~
 
 # Package Files #
@@ -16,17 +17,16 @@
 .idea
 .idea/*
 *.iml
-# eclipse
-/.classpath
-/.project
-/.settings
-/.tern-project
-/.springBeans
+## eclipse
+.classpath
+.project
+.settings
+.tern-project
+.springBeans
 
-# maven
+## maven
 /target/
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-
-
+/web/.project
