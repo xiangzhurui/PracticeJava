@@ -1,6 +1,6 @@
 # PracticeJava
 
-> practice java program.
+> There are about Java programming, algorithms, and sample code
 
 ## environment and tools
 
