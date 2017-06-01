@@ -57,7 +57,7 @@
             <dependency>
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-redis</artifactId>
-                <version>spring-data-redis.version</version>
+                <version>${spring-data-redis.version}</version>
             </dependency>
             <!-- 测试框架 -->
             <dependency>
