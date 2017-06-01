@@ -21,7 +21,7 @@
         <aspectj.version>1.8.10</aspectj.version>
         <jersey2.version>2.25</jersey2.version>
         <thymeleaf.version>3.0.3.RELEASE</thymeleaf.version>
-        <poi.version>3.14</poi.version>
+        <poi.version>3.16</poi.version>
         <dubbo.version>2.5.3</dubbo.version>
         <mysql-connector-java.version>5.1.41</mysql-connector-java.version>
         <jedis>2.9.0</jedis>
