@@ -15,7 +15,9 @@ public class Singleton2 {
     private static Singleton2 getInstance() {
         if (instance == null) {
             synchronized (Singleton2.class) {
-                instance = new Singleton2();
+                if (instance == null) {
+                    instance = new Singleton2();
+                }
             }
         }
         return instance;
