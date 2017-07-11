@@ -18,6 +18,7 @@
         <jdk.version>1.8</jdk.version>
         <slf4j.version>1.7.21</slf4j.version>
         <lo4j2.version>2.7</lo4j2.version>
+        <lombok.version>1.16.16</lombok.version>
         <springframework.version>4.3.7.RELEASE</springframework.version>
         <aspectj.version>1.8.10</aspectj.version>
         <jersey2.version>2.25</jersey2.version>
@@ -52,6 +53,12 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>${lo4j2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
     <dependencyManagement>
