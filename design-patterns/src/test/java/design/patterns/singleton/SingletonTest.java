@@ -1,15 +1,13 @@
 package design.patterns.singleton;
 
-import static org.junit.Assert.*;
-
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
 @Slf4j
-public class Singleton6Test {
+public class SingletonTest {
 
 
     public static void main(String args[]) {
@@ -22,11 +20,11 @@ public class Singleton6Test {
                 try {
                     latch.await();
                     //Singleton single = Singleton.INSTANCE;
-                    Singleton6 single = Singleton6.getInstance();
-                    log.info("{}线程single对象：{}",Thread.currentThread().getId(),single);
+                    Singleton5 single = Singleton5.getInstance();
+                    log.info("{}线程single对象：{}", Thread.currentThread().getId(), single);
                     single.sayHello();
                 } catch (InterruptedException e) {
-                    log.error("",e);
+                    log.error("", e);
                 }
             });
         }
