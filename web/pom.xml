@@ -6,7 +6,7 @@
         <artifactId>practice-java</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>web-mis</artifactId>
+    <artifactId>web</artifactId>
     <packaging>war</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

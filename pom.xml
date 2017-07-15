@@ -12,6 +12,7 @@
         <module>algorithms</module>
         <module>design-patterns</module>
         <module>utils</module>
+        <module>dao</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
