@@ -3,9 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Index of PracticeJava</title>
+<div th:replace="head"></div>
 </head>
 <body>
+  <div th:replace="header"></div>
+  <div th:replace="sidebar"></div>
   <span th:text="${msg}"></span>
   <span th:text="${timeNow}">现在的时间</span>
+  <div th:replace="script"></div>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>xzr</groupId>
@@ -8,19 +8,6 @@
     </parent>
     <artifactId>web</artifactId>
     <packaging>war</packaging>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jdk.version>1.8</jdk.version>
-        <slf4j.version>1.7.21</slf4j.version>
-        <lo4j2.version>2.7</lo4j2.version>
-        <springframework.version>4.3.7.RELEASE</springframework.version>
-        <aspectj.version>1.8.10</aspectj.version>
-        <jersey2.version>2.25</jersey2.version>
-        <thymeleaf.version>3.0.3.RELEASE</thymeleaf.version>
-        <poi.version>3.14</poi.version>
-        <dubbo.version>2.5.3</dubbo.version>
-        <mysql-connector-java.version>5.1.41</mysql-connector-java.version>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>redis.clients</groupId>
@@ -297,6 +284,14 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <configuration>
+                    <verbose>true</verbose>
+                    <overwrite>true</overwrite>
+                </configuration>
             </plugin>
         </plugins>
     </build>
