@@ -7,6 +7,13 @@
 .DS_Store
 .DS_Store?
 *~
+._*
+.Spotlight-V100
+.Trashes
+
+#Windows
+ehthumbs.db
+Thumbs.db
 
 # Package Files #
 *.jar
@@ -15,7 +22,6 @@
 
 # IntelliJ IDEA
 .idea
-.idea/*
 *.iml
 ## eclipse
 .classpath
