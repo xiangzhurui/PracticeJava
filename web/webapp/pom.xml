@@ -288,6 +288,7 @@
             <plugin>
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>${mybatis-generator-maven-plugin.version}</version>
                 <configuration>
                     <verbose>true</verbose>
                     <overwrite>true</overwrite>

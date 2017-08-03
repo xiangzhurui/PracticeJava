@@ -40,6 +40,7 @@
         <jersey2.version>2.25</jersey2.version>
         <junit.version>4.12</junit.version>
         <mockito.version>2.7.18</mockito.version>
+        <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
         <maven-javadoc-plugin.version>2.10.4</maven-javadoc-plugin.version>
         <maven-javadoc-plugin.javadoc.opts>-Xdoclint:none</maven-javadoc-plugin.javadoc.opts>
         <maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
@@ -377,56 +378,53 @@
                     <target>${jdk.version}</target>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>${maven-javadoc-plugin.version}</version>
-                <configuration>
-                    <charset>UTF-8</charset>
-                    <encoding>UTF-8</encoding>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                        <configuration>
-                            <additionalparam>${maven-javadoc-plugin.javadoc.opts}</additionalparam>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.mybatis.generator</groupId>
-                <artifactId>mybatis-generator-maven-plugin</artifactId>
-                <version>${mybatis-generator-maven-plugin.version}</version>
-                <configuration>
-                    <verbose>true</verbose>
-                    <overwrite>true</overwrite>
-                </configuration>
-            </plugin>
         </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>${maven-source-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>attach-sources</id>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>${maven-javadoc-plugin.version}</version>
+                    <configuration>
+                        <charset>UTF-8</charset>
+                        <encoding>UTF-8</encoding>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>attach-javadocs</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                            <configuration>
+                                <additionalparam>${maven-javadoc-plugin.javadoc.opts}</additionalparam>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.mybatis.generator</groupId>
+                    <artifactId>mybatis-generator-maven-plugin</artifactId>
+                    <version>${mybatis-generator-maven-plugin.version}</version>
+                    <configuration>
+                        <verbose>true</verbose>
+                        <overwrite>true</overwrite>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
-    <modules>
-        <module>algorithms</module>
-        <module>design-patterns</module>
-        <module>utils</module>
-        <module>sample</module>
-        <module>elasticsearchdemo</module>
-        <module>web</module>
-    </modules>
 </project>
