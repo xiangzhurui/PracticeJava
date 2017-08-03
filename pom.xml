@@ -1,18 +1,14 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>xzr</groupId>
-    <artifactId>practice-java</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+
+    <groupId>com.xzr.practice</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>PracticeJava</name>
-    <modules>
-        <module>sample</module>
-        <module>algorithms</module>
-        <module>design-patterns</module>
-        <module>utils</module>
-        <module>web</module>
-    </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jdk.version>1.8</jdk.version>
@@ -45,7 +41,7 @@
         <junit.version>4.12</junit.version>
         <mockito.version>2.7.18</mockito.version>
         <maven-javadoc-plugin.version>2.10.4</maven-javadoc-plugin.version>
-        <javadoc.opts>-Xdoclint:none</javadoc.opts>
+        <maven-javadoc-plugin.javadoc.opts>-Xdoclint:none</maven-javadoc-plugin.javadoc.opts>
         <maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
     </properties>
     <dependencies>
@@ -363,6 +359,11 @@
                 <version>1.3</version>
                 <scope>runtime</scope>
             </dependency>
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>transport</artifactId>
+                <version>5.5.1</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <build>
@@ -392,7 +393,7 @@
                             <goal>jar</goal>
                         </goals>
                         <configuration>
-                            <additionalparam>${javadoc.opts}</additionalparam>
+                            <additionalparam>${maven-javadoc-plugin.javadoc.opts}</additionalparam>
                         </configuration>
                     </execution>
                 </executions>
@@ -420,4 +421,12 @@
             </plugin>
         </plugins>
     </build>
+    <modules>
+        <module>algorithms</module>
+        <module>design-patterns</module>
+        <module>utils</module>
+        <module>sample</module>
+        <module>elasticsearchdemo</module>
+        <module>web</module>
+    </modules>
 </project>
