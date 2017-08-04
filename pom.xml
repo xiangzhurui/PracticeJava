@@ -22,7 +22,7 @@
         <jdk.version>1.8</jdk.version>
 
         <slf4j.version>1.7.21</slf4j.version>
-        <lo4j2.version>2.7</lo4j2.version>
+        <lo4j2.version>2.8.2</lo4j2.version>
         <lombok.version>1.16.16</lombok.version>
 
         <springframework.version>4.3.10.RELEASE</springframework.version>
@@ -40,8 +40,6 @@
         <commons-dbcp2.version>2.1.1</commons-dbcp2.version>
 
         <thymeleaf.version>3.0.3.RELEASE</thymeleaf.version>
-
-        <elasticsearch.verison>5.5.1</elasticsearch.verison>
 
         <jedis.version>2.9.0</jedis.version>
 

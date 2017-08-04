@@ -13,6 +13,7 @@
     <properties>
         <jdk.version>1.8</jdk.version>
         <spring-boot.version>1.5.6.RELEASE</spring-boot.version>
+        <elasticsearch.version>5.5.0</elasticsearch.version>
     </properties>
     <dependencies>
         <!-- spring -->
@@ -38,18 +39,17 @@
             <artifactId>spring-core</artifactId>
             <version>${springframework.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
             <version>${springframework.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.elasticsearch.client</groupId>
             <artifactId>transport</artifactId>
-            <version>5.5.1</version>
+            <version>${elasticsearch.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-elasticsearch</artifactId>
@@ -66,6 +66,22 @@
                     <source>${jdk.version}</source>
                     <target>${jdk.version}</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.4.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals><goal>shade</goal></goals>
+                        <configuration>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
