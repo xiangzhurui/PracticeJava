@@ -5,10 +5,18 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.xzr.practice</groupId>
-    <artifactId>parent</artifactId>
+    <artifactId>practice-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>PracticeJava</name>
+    <modules>
+        <module>algorithms</module>
+        <module>design-patterns</module>
+        <module>utils</module>
+        <module>web</module>
+        <module>sample</module>
+        <module>elasticsearchdemo</module>
+    </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jdk.version>1.8</jdk.version>
@@ -28,6 +36,7 @@
         <mysql-connector-java.version>5.1.41</mysql-connector-java.version>
         <commons-dbcp2.version>2.1.1</commons-dbcp2.version>
         <dubbo.version>2.5.3</dubbo.version>
+        <elasticsearch.verison>5.5.1</elasticsearch.verison>
         <joda-time.version>2.9.4</joda-time.version>
         <commons-net.version>3.5</commons-net.version>
         <commons-codec.version>1.10</commons-codec.version>
@@ -67,11 +76,19 @@
             <artifactId>log4j-core</artifactId>
             <version>${lo4j2.version}</version>
         </dependency>
+        <!-- /日志框架 -end -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
             <scope>provided</scope>
+        </dependency>
+        <!-- 测试框架 -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <dependencyManagement>
@@ -86,13 +103,7 @@
                 <artifactId>spring-data-redis</artifactId>
                 <version>${spring-data-redis.version}</version>
             </dependency>
-            <!-- 测试框架 -->
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${junit.version}</version>
-                <scope>test</scope>
-            </dependency>
+            <!-- 测试框架 可选 -->
             <dependency>
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-core</artifactId>
@@ -360,10 +371,11 @@
                 <version>1.3</version>
                 <scope>runtime</scope>
             </dependency>
+            <!-- elasticsearch -->
             <dependency>
                 <groupId>org.elasticsearch.client</groupId>
                 <artifactId>transport</artifactId>
-                <version>5.5.1</version>
+                <version>${elasticsearch.verison}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
