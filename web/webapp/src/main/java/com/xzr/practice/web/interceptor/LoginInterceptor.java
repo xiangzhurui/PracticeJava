@@ -1,4 +1,4 @@
-package framework.web;
+package com.xzr.practice.web.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,7 +27,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 		// 获取url地址
 		String reqUrl = request.getRequestURI().replace(request.getContextPath(), "");
 		// 当url地址为登录的url的时候跳过拦截器
-		if (reqUrl.contains("/login.html")) {
+		if (reqUrl.contains("/login")) {
 			return true;
 		} else {
 			HttpSession session = request.getSession();

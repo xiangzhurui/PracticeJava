@@ -5,23 +5,21 @@
        xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
-    <context:component-scan base-package="framework.web">
-        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-    </context:component-scan>
-    <mvc:annotation-driven></mvc:annotation-driven>
+    <!-- 默认的注解映射的支持 -->
+    <mvc:annotation-driven/>
     <mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
     <mvc:interceptors>
-        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
         <mvc:interceptor>
-            <mvc:mapping path="/**"/>
-            <mvc:exclude-mapping path="/admin/**"/>
-            <bean class="org.springframework.web.servlet.theme.ThemeChangeInterceptor"/>
-        </mvc:interceptor>
-        <mvc:interceptor>
-            <mvc:mapping path="/secure/*"/>
-            <bean class="framework.web.LoginInterceptor"/>
+            <!--匹配多级路径-->
+            <mvc:mapping path="/*"/>
+            <!--登陆权限拦截器-->
+            <bean class="com.xzr.practice.web.interceptor.LoginInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
+    <context:component-scan base-package="com.xzr.practice.web.controller">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+    
     <!-- 支持文件上传 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <!-- 设置上传文件的最大尺寸为1MB -->
@@ -44,6 +42,6 @@
     <bean id="templateResolver" class="org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver">
         <property name="prefix" value="/WEB-INF/view/"/>
         <property name="suffix" value=".html"/>
-        <property name="templateMode" value="HTML5"/>
+        <property name="templateMode" value="HTML"/>
     </bean>
 </beans>
