@@ -1,4 +1,4 @@
-package web.file.upload;
+package com.xzr.practice.web.servlet.upload;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;

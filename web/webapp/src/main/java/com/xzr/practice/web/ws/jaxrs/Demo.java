@@ -1,4 +1,4 @@
-package web.ws.jaxrs;
+package com.xzr.practice.web.ws.jaxrs;
 
 /**
  * @author XiangZhuRui

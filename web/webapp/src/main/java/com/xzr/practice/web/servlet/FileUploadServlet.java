@@ -1,4 +1,4 @@
-package web.servlet;
+package com.xzr.practice.web.servlet;
 
 import java.io.File;
 import java.io.IOException;

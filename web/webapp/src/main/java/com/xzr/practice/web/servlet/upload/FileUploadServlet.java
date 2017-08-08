@@ -1,4 +1,4 @@
-package web.file.upload;
+package com.xzr.practice.web.servlet.upload;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

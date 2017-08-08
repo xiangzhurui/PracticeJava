@@ -1,4 +1,4 @@
-package framework.spring.util;
+package com.xzr.practice.commons.util;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

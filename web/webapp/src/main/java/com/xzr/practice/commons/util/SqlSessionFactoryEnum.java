@@ -1,4 +1,4 @@
-package framework.mybatis.utils;
+package com.xzr.practice.commons.util;
 
 import java.io.IOException;
 import java.io.InputStream;

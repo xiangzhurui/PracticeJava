@@ -1,4 +1,4 @@
-package web.ws;
+package com.xzr.practice.web.ws;
 
 public class ParamsBean {
 	private String name;

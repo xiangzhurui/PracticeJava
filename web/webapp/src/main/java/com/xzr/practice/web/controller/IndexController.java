@@ -1,4 +1,4 @@
-package framework.web.controller;
+package com.xzr.practice.web.controller;
 
 import org.joda.time.DateTime;
 import org.slf4j.Logger;
@@ -25,6 +25,10 @@ public class IndexController {
 		String timeNow = new DateTime().toString();
 		log.info("IndexController里的时间是{}",timeNow);
 		model.addAttribute("timeNow", timeNow);
+		return "index";
+	}
+	@RequestMapping("login")
+	public String login(){
 		return "index";
 	}
 }
