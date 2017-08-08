@@ -2,9 +2,6 @@ package com.xzr.practice.web.controller;
 
 import com.xzr.practice.service.LoginService;
 import lombok.extern.slf4j.Slf4j;
-import org.joda.time.DateTime;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,13 +16,13 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Slf4j
 @Controller
-@RequestMapping(value = {"/", ""})
+@RequestMapping("/")
 public class IndexController {
 
     @Autowired
     LoginService loginService;
 
-    @RequestMapping(value = {"/login", ""}, method = RequestMethod.POST)
+    @RequestMapping(value = { "login", "sign-in", "" }, method = RequestMethod.POST)
     public String login(@RequestParam String userName, @RequestParam String password, Model model) {
         log.info("userName=[{}],password=[{}]", userName, password);
         if (loginService.login(userName, password)) {
@@ -37,7 +34,7 @@ public class IndexController {
         }
     }
 
-    @RequestMapping(value = {"login", "","index"}, method = RequestMethod.GET)
+    @RequestMapping(value = { "login", "","sign-in" }, method = RequestMethod.GET)
     public String login() {
         log.info("登录页面");
         return "index";

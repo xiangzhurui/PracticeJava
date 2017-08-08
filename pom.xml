@@ -288,12 +288,6 @@
                 <artifactId>jsch</artifactId>
                 <version>0.1.54</version>
             </dependency>
-            <!-- elasticsearch -->
-            <dependency>
-                <groupId>org.elasticsearch.client</groupId>
-                <artifactId>transport</artifactId>
-                <version>${elasticsearch.verison}</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
     <build>

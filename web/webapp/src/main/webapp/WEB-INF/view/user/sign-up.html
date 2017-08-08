@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html class="login-bg" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>用户注册</title>
-<div th:replace="common/head::header"/>
+<title>用户注册</title>
+<div th:replace="common/head::header" />
+</head>
 <body>
     <div class="header">
-        <a href="index.html">
-            <img src="img/logo.png" class="logo" />
+        <a href="../index.html" th:href="@{/}">
+            <img src="img/logo.png" th:src="@{/resources/static/image/log.png}" class="logo" />
         </a>
     </div>
     <div class="row-fluid login-wrapper">
@@ -21,17 +22,13 @@
                 </div>
             </div>
         </div>
-
-        <div class="span4 already">
-            <p>Already have an account?</p>
-            <a href="signin.html">Sign in</a>
+        <div class="span4">
+            <p>已经有账户？</p>
+            <a href="../index.html" th:href="@{/sign-in}">登录</a>
         </div>
     </div>
-
-	<!-- scripts -->
-    <script src="js/jquery-latest.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/theme.js"></script>
-
+    <!-- scripts -->
+    <script th:src="@{/resources/public/jquery-core/jquery-3.1.0.js}"></script>
+    <script th:src="@{/resources/public/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>
