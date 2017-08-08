@@ -27,16 +27,23 @@ public class LoginInterceptor implements HandlerInterceptor {
         // 获取url地址
         String reqUrl = request.getRequestURI().replace(request.getContextPath(), "");
         // 当url地址为登录的url的时候跳过拦截器
-        if (reqUrl.contains("/login") || reqUrl.contains("/error")) {
+        if (reqUrl.contains("/login") || reqUrl.contains("/error") || reqUrl.contains("/index")) {
             return true;
         } else {
             HttpSession session = request.getSession();
             Object obj = session.getAttribute(Constans.USER);
             if (obj == null || "".equals(obj.toString())) {
+                log.info("用户未登录，session user 为空");
                 response.sendRedirect("/");
+                return false;
+            } else {
+                log.info("用户已登录");
+                response.sendRedirect("manager/index");
+                return true;
             }
+
         }
-        return true;
+
     }
 
     @Override

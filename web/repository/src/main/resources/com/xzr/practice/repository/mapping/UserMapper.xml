@@ -103,4 +103,11 @@
       modiy_at = #{modiyAt,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectByUsernamePassword" parameterType="com.xzr.practice.commons.model.User">
+      select
+      <include refid="Base_Column_List" />
+      from user
+      where username = #{username,jdbcType=VARCHAR}
+      AND  password = #{password,jdbcType=VARCHAR}
+  </select>
 </mapper>

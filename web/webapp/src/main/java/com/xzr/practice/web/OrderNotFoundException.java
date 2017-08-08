@@ -9,6 +9,6 @@ public class OrderNotFoundException extends RuntimeException {
     private static final long serialVersionUID = -7953015875710087514L;
     
     public String errorDirect(){
-        return "redirect:";
+        return "redirect:error/"+HttpStatus.NOT_FOUND.value();
     }
 }
