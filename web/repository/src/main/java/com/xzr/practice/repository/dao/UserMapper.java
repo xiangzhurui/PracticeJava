@@ -1,6 +1,6 @@
-package com.xzr.practice.dao;
+package com.xzr.practice.repository.dao;
 
-import com.xzr.practice.model.User;
+import com.xzr.practice.commons.model.User;
 
 public interface UserMapper {
     int deleteByPrimaryKey(Integer id);

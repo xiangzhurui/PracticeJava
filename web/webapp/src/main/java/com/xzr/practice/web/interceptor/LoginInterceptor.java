@@ -33,7 +33,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             HttpSession session = request.getSession();
             Object obj = session.getAttribute(Constans.USER);
             if (obj == null || "".equals(obj.toString())) {
-                response.sendRedirect("/login");
+                response.sendRedirect("/");
             }
         }
         return true;

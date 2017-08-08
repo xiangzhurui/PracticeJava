@@ -1,15 +1,40 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Index of PracticeJava</title>
-<div th:replace="head"></div>
+    <title>欢迎到来</title>
+    <div th:replace="/common/head::header"></div>
 </head>
 <body>
-  <div th:replace="header"></div>
-  <div th:replace="sidebar"></div>
-  <span th:text="${msg}"></span>
-  <span th:text="${timeNow}">现在的时间</span>
-  <div th:replace="script"></div>
+<header class="page-header text-center">
+    <h1>欢迎到来</h1>
+</header>
+<span th:text="${msg}"></span>
+<span th:text="${timeNow}">现在的时间</span>
+<div class="container">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">用户名</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="" placeholder="请输入用户名">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">密码</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" name="" placeholder="请输入密码">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-2">
+
+            </div>
+            <div class="col-sm-10">
+                <button class="btn btn-success">注册</button>
+                <button class="btn btn-primary">登录</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

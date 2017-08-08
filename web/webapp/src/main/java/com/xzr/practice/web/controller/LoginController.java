@@ -22,17 +22,17 @@ public class LoginController {
         log.debug("userName=[{}],password=[{}]", userName, password);
         if (loginService.login(userName, password)) {
 
-            return "dastboad";
+            return "manager/index";
         } else {
             model.addAttribute("msg", "用户名或密码错误");
-            return "sigin/signin";
+            return "index";
         }
     }
 
     @RequestMapping(method = RequestMethod.GET)
     public String login() {
         log.debug("登录页面");
-        return "sigin/signin";
+        return "index";
     }
 
 }

@@ -10,7 +10,7 @@
         </commentGenerator>
         <jdbcConnection connectionURL="jdbc:mysql://127.0.0.1:3306/practicedb?useUnicode\=true&amp;setEncoding\=utf8&amp;useSSL\=false"
             driverClass="com.mysql.jdbc.Driver" password="root" userId="root" />
-        <javaModelGenerator targetPackage="com.xzr.practice.model" targetProject="src/main/java" />
+        <javaModelGenerator targetPackage="com.xzr.practice.commons.model" targetProject="src/main/java" />
         <sqlMapGenerator targetPackage="com.xzr.practice.mapping" targetProject="src/main/resources" />
         <javaClientGenerator targetPackage="com.xzr.practice.dao" targetProject="src/main/java"
             type="XMLMAPPER" />

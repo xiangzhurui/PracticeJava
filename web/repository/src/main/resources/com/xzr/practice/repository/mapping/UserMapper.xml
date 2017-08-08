@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.xzr.practice.dao.UserMapper">
-  <resultMap id="BaseResultMap" type="com.xzr.practice.model.User">
+<mapper namespace="com.xzr.practice.repository.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.xzr.practice.commons.model.User">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="password" jdbcType="VARCHAR" property="password" />
@@ -22,7 +22,7 @@
     delete from user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.xzr.practice.model.User">
+  <insert id="insert" parameterType="com.xzr.practice.commons.model.User">
     insert into user (id, username, password, 
       name, creat_at, modiy_at
       )
@@ -30,7 +30,7 @@
       #{name,jdbcType=VARCHAR}, #{creatAt,jdbcType=TIMESTAMP}, #{modiyAt,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.xzr.practice.model.User">
+  <insert id="insertSelective" parameterType="com.xzr.practice.commons.model.User">
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xzr.practice.model.User">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xzr.practice.commons.model.User">
     update user
     <set>
       <if test="username != null">
@@ -94,7 +94,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xzr.practice.model.User">
+  <update id="updateByPrimaryKey" parameterType="com.xzr.practice.commons.model.User">
     update user
     set username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},

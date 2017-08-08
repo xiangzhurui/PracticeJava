@@ -8,7 +8,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 /**
- * 
+ * 示例：mybatis 单独使用的工具类
+ *
  * @author XZR
  * @version 2016.07.28
  */
@@ -17,7 +18,7 @@ public enum SqlSessionFactoryEnum {
 
     private SqlSessionFactory factory;
 
-    private SqlSessionFactoryEnum() {
+    SqlSessionFactoryEnum() {
         System.out.println(System.currentTimeMillis());
         String resource = "mybatis/mybatis-config.xml";
         InputStream inputStream = null;
@@ -30,6 +31,11 @@ public enum SqlSessionFactoryEnum {
         factory = builder.build(inputStream);
     }
 
+    /**
+     * 获取 SqlSessionFactory 实例
+     *
+     * @return 返回 SqlSessionFactory 的唯一实例
+     */
     public SqlSessionFactory getFactory() {
         return factory;
     }

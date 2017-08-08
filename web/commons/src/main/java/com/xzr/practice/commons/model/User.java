@@ -1,4 +1,4 @@
-package com.xzr.practice.model;
+package com.xzr.practice.commons.model;
 
 import java.util.Date;
 
