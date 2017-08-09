@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
  * @author XiangZhuRui
  *
  */
-@WebServlet(urlPatterns = "/data/upload")
+@WebServlet(name = "FileUploadServlet1",urlPatterns = "/data/upload")
 public class FileUploadServlet extends HttpServlet {
     final static Logger       logger           = LoggerFactory.getLogger(FileUploadServlet.class);
 

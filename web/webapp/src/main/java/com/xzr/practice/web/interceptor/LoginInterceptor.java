@@ -34,8 +34,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             Object obj = session.getAttribute(Constans.USER);
             if (obj == null || "".equals(obj.toString())) {
                 log.info("用户未登录，session user 为空");
-                response.sendRedirect("/");
-                return false;
+                response.sendRedirect("/login");
             } else {
                 log.info("用户已登录");
                 response.sendRedirect("manager/index");
@@ -43,6 +42,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             }
 
         }
+        return true ;
 
     }
 

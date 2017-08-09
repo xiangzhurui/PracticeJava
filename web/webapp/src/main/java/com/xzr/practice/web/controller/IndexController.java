@@ -22,10 +22,10 @@ public class IndexController {
     @Autowired
     LoginService loginService;
 
-    @RequestMapping(value = { "login", "sign-in", "" }, method = RequestMethod.POST)
-    public String login(@RequestParam String userName, @RequestParam String password, Model model) {
-        log.info("userName=[{}],password=[{}]", userName, password);
-        if (loginService.login(userName, password)) {
+    @RequestMapping(value = {"login", "sign-in", ""}, method = RequestMethod.POST)
+    public String login(@RequestParam(required = false) String username, @RequestParam(required = false) String password, Model model) {
+        log.info("username=[{}],password=[{}]", username, password);
+        if (loginService.login(username, password)) {
 
             return "manager/index";
         } else {
@@ -34,7 +34,7 @@ public class IndexController {
         }
     }
 
-    @RequestMapping(value = { "login", "","sign-in" }, method = RequestMethod.GET)
+    @RequestMapping(value = {"login", "", "sign-in"}, method = RequestMethod.GET)
     public String login() {
         log.info("登录页面");
         return "index";

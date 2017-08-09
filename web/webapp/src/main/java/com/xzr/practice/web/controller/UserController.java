@@ -18,4 +18,8 @@ public class UserController {
         return "user/sign-up";
     }
 
+    @RequestMapping(value = "restore",method = RequestMethod.GET)
+    public String restore(){
+        return "user/sign-up";
+    }
 }
