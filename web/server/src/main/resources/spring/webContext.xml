@@ -16,10 +16,10 @@
             <mvc:mapping path="/**"/>
             <mvc:exclude-mapping path="/resources/**"/>
             <!--登陆权限拦截器-->
-            <bean class="personal.xzr.practice.web.web.interceptor.LoginInterceptor"/>
+            <bean class="personal.xzr.practice.web.interceptor.LoginInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
-    <context:component-scan base-package="com.xzr.practice.web.controller">
+    <context:component-scan base-package="personal.xzr.practice.web.controller">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 

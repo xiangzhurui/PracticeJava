@@ -13,7 +13,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
     <context:property-placeholder location="classpath:application.properties"/>
-    <context:component-scan base-package="com.xzr.practice">
+    <context:component-scan base-package="personal.xzr.practice">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
     <aop:aspectj-autoproxy/>
@@ -37,7 +37,7 @@
     </bean>
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"></property>
-        <property name="mapperLocations" value="classpath*:com/xzr/practice/repository/mapping/*.xml"/>
+        <property name="mapperLocations" value="classpath*:personal/xzr/practice/web/repository/mapping/*.xml"/>
         <property name="plugins">
             <array>
                 <!--mybatis 分页插件-->
@@ -51,7 +51,7 @@
         </property>
     </bean>
     <!-- mybatis 包扫描 -->
-    <mybatis-spring:scan base-package="com.xzr.practice.repository"/>
+    <mybatis-spring:scan base-package="personal.xzr.practice.web.repository"/>
     <!-- 启用声明式事务 -->
     <tx:annotation-driven/>
 </beans>
