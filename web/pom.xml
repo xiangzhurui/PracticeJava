@@ -140,10 +140,22 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
     <modules>
+        <module>commons</module>
         <module>repository</module>
         <module>service</module>
-        <module>webapp</module>
-        <module>commons</module>
+        <module>server</module>
     </modules>
 </project>

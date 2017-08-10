@@ -38,6 +38,7 @@
         <poi.version>3.16</poi.version>
         <guava.version>20.0</guava.version>
         <gson.version>2.7</gson.version>
+        <jsch.version>0.1.54</jsch.version>
         <!-- test -->
         <junit.version>4.12</junit.version>
         <mockito.version>2.7.18</mockito.version>
@@ -253,6 +254,11 @@
                 <version>0.6.2</version>
             </dependency>
             <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>2.8.5</version>
+            </dependency>
+            <dependency>
                 <groupId>com.google.code.gson</groupId>
                 <artifactId>gson</artifactId>
                 <version>${gson.version}</version>
@@ -286,7 +292,7 @@
             <dependency>
                 <groupId>com.jcraft</groupId>
                 <artifactId>jsch</artifactId>
-                <version>0.1.54</version>
+                <version>${jsch.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
