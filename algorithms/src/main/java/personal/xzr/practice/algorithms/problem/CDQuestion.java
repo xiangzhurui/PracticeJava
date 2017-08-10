@@ -1,4 +1,4 @@
-package personal.xzr.practice.web.algorithms.problem;
+package personal.xzr.practice.algorithms.problem;
 
 public class CDQuestion {
 

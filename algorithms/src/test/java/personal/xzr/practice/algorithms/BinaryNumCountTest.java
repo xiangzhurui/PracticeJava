@@ -1,4 +1,4 @@
-package personal.xzr.practice.web.algorithms;
+package personal.xzr.practice.algorithms;
 
 import org.junit.Assert;
 import org.junit.Test;

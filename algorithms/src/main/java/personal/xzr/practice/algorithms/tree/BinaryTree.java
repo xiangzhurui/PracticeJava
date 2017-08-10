@@ -1,4 +1,4 @@
-package personal.xzr.practice.web.algorithms.tree;
+package personal.xzr.practice.algorithms.tree;
 
 import java.util.ArrayList;
 import java.util.Iterator;

@@ -1,4 +1,4 @@
-package personal.xzr.practice.web.algorithms;
+package personal.xzr.practice.algorithms;
 
 /**
  * 实现一个函数， 输入一个整数，输出该数二进制表示中1的个数。
