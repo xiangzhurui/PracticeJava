@@ -33,6 +33,7 @@
         <mysql-connector-java.version>5.1.41</mysql-connector-java.version>
         <commons-dbcp2.version>2.1.1</commons-dbcp2.version>
         <thymeleaf.version>3.0.3.RELEASE</thymeleaf.version>
+        <thymeleaf-layout-dialect.version>2.2.2</thymeleaf-layout-dialect.version>
         <jedis.version>2.9.0</jedis.version>
         <dubbo.version>2.5.3</dubbo.version>
         <!-- tools -->
@@ -189,6 +190,11 @@
                 <groupId>org.thymeleaf</groupId>
                 <artifactId>thymeleaf-spring4</artifactId>
                 <version>${thymeleaf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>nz.net.ultraq.thymeleaf</groupId>
+                <artifactId>thymeleaf-layout-dialect</artifactId>
+                <version>${thymeleaf-layout-dialect.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
