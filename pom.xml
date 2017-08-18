@@ -6,14 +6,13 @@
     <artifactId>practice-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jdk.version>1.8</jdk.version>
         <slf4j.version>1.7.21</slf4j.version>
         <lo4j2.version>2.8.2</lo4j2.version>
         <lombok.version>1.16.16</lombok.version>
-        <springframework.version>4.3.4.RELEASE</springframework.version>
+        <springframework.version>4.3.10.RELEASE</springframework.version>
         <!-- spring data -->
         <spring-data-redis.version>1.8.1.RELEASE</spring-data-redis.version>
         <aspectj.version>1.8.10</aspectj.version>
@@ -45,7 +44,6 @@
         <!-- plugins -->
         <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
         <maven-javadoc-plugin.version>2.10.4</maven-javadoc-plugin.version>
-        <maven-javadoc-plugin.javadoc.opts>-Xdoclint:none</maven-javadoc-plugin.javadoc.opts>
         <maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
     </properties>
     <dependencyManagement>
@@ -118,6 +116,11 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context-support</artifactId>
+                <version>${springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
                 <version>${springframework.version}</version>
             </dependency>
             <dependency>
@@ -339,7 +342,7 @@
                                 <goal>jar</goal>
                             </goals>
                             <configuration>
-                                <additionalparam>${maven-javadoc-plugin.javadoc.opts}</additionalparam>
+                                <additionalparam>Xdoclint:none</additionalparam>
                             </configuration>
                         </execution>
                     </executions>
@@ -356,4 +359,11 @@
             </plugins>
         </pluginManagement>
     </build>
+    <modules>
+        <module>utils</module>
+        <module>sample</module>
+        <module>algorithms</module>
+        <module>design-patterns</module>
+        <module>web</module>
+    </modules>
 </project>
