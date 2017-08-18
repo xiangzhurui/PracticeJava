@@ -365,6 +365,7 @@
         <module>algorithms</module>
         <module>design-patterns</module>
         <module>web</module>
-        <module>example-drools-6.5</module>
+        <module>example-drools</module>
+        <module>example-elasticsearch</module>
     </modules>
 </project>

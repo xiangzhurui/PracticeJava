@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>practice-parent</artifactId>
+        <groupId>com.xzr.practice</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>example-elasticsearch</artifactId>
+    <description>
+        使用 Java REST client，最低的 Java 版本要求是1.7。
+    </description>
+    <properties>
+        <elasticsearch.version>5.5.2</elasticsearch.version>
+    </properties>
+    <dependencies>
+        <!-- Elasticesearch 相关-->
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>rest</artifactId>
+            <version>${elasticsearch.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>sniffer</artifactId>
+            <version>${elasticsearch.version}</version>
+        </dependency>
+        <!-- /Elasticesearch 相关-->
+        <!-- 通用项目依赖 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+        </dependency>
+        <!-- /通用项目依赖 -->
+    </dependencies>
+</project>

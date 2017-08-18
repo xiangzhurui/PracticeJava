@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>example-drools-6.5</artifactId>
+    <artifactId>example-drools</artifactId>
     <properties>
         <drools.version>6.5.0.Final</drools.version>
     </properties>
