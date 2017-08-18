@@ -361,9 +361,10 @@
     </build>
     <modules>
         <module>utils</module>
-        <module>sample</module>
+        <module>example-java</module>
         <module>algorithms</module>
         <module>design-patterns</module>
         <module>web</module>
+        <module>example-drools-6.5</module>
     </modules>
 </project>
