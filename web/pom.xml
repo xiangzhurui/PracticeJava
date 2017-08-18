@@ -9,14 +9,13 @@
     <artifactId>web</artifactId>
     <packaging>war</packaging>
     <properties>
+        <elasticsearch.version>5.5.2</elasticsearch.version>
         <jersey2.version>2.25</jersey2.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-            <scope>provided</scope>
         </dependency>
         <!-- 日志框架 -->
         <dependency>
@@ -44,6 +43,10 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
         </dependency>
         <!-- 工具类库 -->
         <dependency>
@@ -236,6 +239,19 @@
             <artifactId>jersey-media-json-jackson</artifactId>
             <version>${jersey2.version}</version>
         </dependency>
+        <!-- /JAX-RS & Jersey2 -->
+        <!-- Elasticesearch 相关-->
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>rest</artifactId>
+            <version>${elasticsearch.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>sniffer</artifactId>
+            <version>${elasticsearch.version}</version>
+        </dependency>
+        <!-- /Elasticesearch 相关-->
     </dependencies>
     <build>
         <plugins>

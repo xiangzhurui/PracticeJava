@@ -29,6 +29,16 @@
             <version>${elasticsearch.version}</version>
         </dependency>
         <!-- /Elasticesearch 相关-->
+        <!-- 工具 -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+        </dependency>
+        <!-- /工具 -->
         <!-- 通用项目依赖 -->
         <dependency>
             <groupId>org.projectlombok</groupId>

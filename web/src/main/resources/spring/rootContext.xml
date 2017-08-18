@@ -13,6 +13,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
     <context:property-placeholder location="classpath:application.properties"/>
+    <!--<context:property-placeholder location="classpath:properites/**.properties"/>-->
     <context:component-scan base-package="personal.xzr.practice">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>

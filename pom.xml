@@ -12,7 +12,7 @@
         <slf4j.version>1.7.21</slf4j.version>
         <lo4j2.version>2.8.2</lo4j2.version>
         <lombok.version>1.16.16</lombok.version>
-        <springframework.version>4.3.10.RELEASE</springframework.version>
+        <springframework.version>4.3.4.RELEASE</springframework.version>
         <!-- spring data -->
         <spring-data-redis.version>1.8.1.RELEASE</spring-data-redis.version>
         <aspectj.version>1.8.10</aspectj.version>
