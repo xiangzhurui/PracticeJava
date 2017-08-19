@@ -8,8 +8,6 @@
     <!-- 默认的注解映射的支持 -->
     <mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
     <mvc:annotation-driven/>
-
-
     <mvc:interceptors>
         <mvc:interceptor>
             <!--匹配多级路径-->
