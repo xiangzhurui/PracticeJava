@@ -1,38 +1,37 @@
-package me.xzr.practice.example.elasticsearch;
+package me.xzr.practice.example.elasticsearch.repo;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.http.Header;
+import me.xzr.practice.example.elasticsearch.BaseSpringTest;
 import org.apache.http.HttpEntity;
-import org.apache.http.HttpHost;
 import org.apache.http.entity.ContentType;
-import org.apache.http.message.BasicHeader;
 import org.apache.http.nio.entity.NStringEntity;
 import org.apache.http.util.EntityUtils;
 import org.elasticsearch.client.Response;
 import org.elasticsearch.client.ResponseListener;
 import org.elasticsearch.client.RestClient;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
 import java.util.Collections;
 import java.util.concurrent.CountDownLatch;
 
 @Slf4j
-public class InitializationSamle {
-    static RestClient restClient = RestClient.builder(
-            new HttpHost("localhost", 9200, "http"),
-            new HttpHost("localhost", 9201, "http")).build();
+public class RestClientTest extends BaseSpringTest {
 
-    public static void main(String[] args) {
+    @Autowired
+    private RestClient restClient;
 
-    }
 
-    public void test1() throws IOException {
-
+    @Test
+    public void testPerformRequest() throws IOException {
+//        Object obj =SpringContextUtil.getBean("httpHost");
+//        log.info("{}",obj);
         Response response = restClient.performRequest("GET", "/",
                 Collections.singletonMap("pretty", "true"));
-        System.out.println(EntityUtils.toString(response.getEntity()));
+        log.info(EntityUtils.toString(response.getEntity()));
 
-//index a document
+        //index a document
         HttpEntity entity = new NStringEntity(
                 "{\n" +
                         "    \"user\" : \"kimchy\",\n" +
@@ -40,14 +39,13 @@ public class InitializationSamle {
                         "    \"message\" : \"trying out Elasticsearch\"\n" +
                         "}", ContentType.APPLICATION_JSON);
 
-        Response indexResponse = restClient.performRequest(
-                "PUT",
+        Response indexResponse = restClient.performRequest("PUT",
                 "/twitter/tweet/1",
                 Collections.<String, String>emptyMap(),
                 entity);
     }
 
-    public static void test2() throws InterruptedException {
+    public void test2() throws InterruptedException {
         int numRequests = 10;
         final CountDownLatch latch = new CountDownLatch(numRequests);
 
@@ -56,8 +54,7 @@ public class InitializationSamle {
                     "PUT",
                     "/twitter/tweet/" + i,
                     Collections.<String, String>emptyMap(),
-                    //assume that the documents are stored in an entities array
-//                    entities[i],
+                    //assume that the documents are stored in an entities array entities[i],
                     new ResponseListener() {
                         @Override
                         public void onSuccess(Response response) {

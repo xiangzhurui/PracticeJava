@@ -1,4 +1,4 @@
-package me.xzr.practice.example.elasticsearch.repo;
+package me.xzr.practice.example.elasticsearch;
 
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
