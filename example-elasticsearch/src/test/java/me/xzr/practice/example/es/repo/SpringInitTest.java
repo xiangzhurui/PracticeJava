@@ -1,11 +1,11 @@
-package me.xzr.practice.example.elasticsearch.repo;
+package me.xzr.practice.example.es.repo;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import lombok.extern.slf4j.Slf4j;
-import me.xzr.practice.example.elasticsearch.BaseSpringTest;
-import me.xzr.practice.example.elasticsearch.SpringContextUtil;
-import me.xzr.practice.example.elasticsearch.constant.HttpMethod;
+import me.xzr.practice.example.es.BaseSpringTest;
+import me.xzr.practice.example.es.constant.HttpMethod;
+import me.xzr.practice.example.es.util.SpringContextUtil;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;

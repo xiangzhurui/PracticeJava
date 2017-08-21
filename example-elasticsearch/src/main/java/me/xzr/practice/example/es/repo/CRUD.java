@@ -1,4 +1,4 @@
-package me.xzr.practice.example.elasticsearch.repo;
+package me.xzr.practice.example.es.repo;
 
 import com.google.gson.JsonObject;
 import org.apache.http.Header;
@@ -6,7 +6,7 @@ import org.apache.http.Header;
 import java.io.IOException;
 
 /**
- * elasticsearch 基本操作
+ * es 基本操作
  *
  * @author xiangzhurui
  * @version 2017.08.21

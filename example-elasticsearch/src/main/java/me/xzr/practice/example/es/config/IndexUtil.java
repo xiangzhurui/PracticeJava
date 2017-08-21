@@ -1,4 +1,4 @@
-package me.xzr.practice.example.elasticsearch.config;
+package me.xzr.practice.example.es.config;
 
 import com.google.gson.JsonObject;
 

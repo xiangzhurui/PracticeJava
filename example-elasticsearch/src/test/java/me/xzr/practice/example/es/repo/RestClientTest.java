@@ -1,7 +1,7 @@
-package me.xzr.practice.example.elasticsearch.repo;
+package me.xzr.practice.example.es.repo;
 
 import lombok.extern.slf4j.Slf4j;
-import me.xzr.practice.example.elasticsearch.BaseSpringTest;
+import me.xzr.practice.example.es.BaseSpringTest;
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.ContentType;
 import org.apache.http.nio.entity.NStringEntity;

@@ -1,4 +1,4 @@
-package me.xzr.practice.example.elasticsearch.constant;
+package me.xzr.practice.example.es.constant;
 
 public final class HttpMethod {
     public static final String GET = "GET";

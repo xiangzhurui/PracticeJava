@@ -1,4 +1,4 @@
-package me.xzr.practice.example.elasticsearch;
+package me.xzr.practice.example.es.util;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
