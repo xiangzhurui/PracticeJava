@@ -373,5 +373,6 @@
         <module>web</module>
         <module>example-drools</module>
         <module>example-elasticsearch</module>
+        <module>example-elasticsearch-6</module>
     </modules>
 </project>
