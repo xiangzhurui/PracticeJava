@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="restClientBuilder" class="org.elasticsearch.client.RestClientBuilder">
+        <constructor-arg ref="httpHost"/>
+    </bean>
+    <bean id="restClient" class="org.elasticsearch.client.RestClient" factory-bean="restClientBuilder"
+          factory-method="build" destroy-method="close">
+    </bean>
+    <bean id="httpHost" class="org.apache.http.HttpHost">
+        <constructor-arg value="localhost"/>
+        <constructor-arg value="9200"/>
+        <constructor-arg value="http"/>
+    </bean>
+</beans>
