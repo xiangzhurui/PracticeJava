@@ -2,6 +2,7 @@ package personal.xzr.practice.web.service.util;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 /**
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Component;
  * @version 2017.08.08
  */
 @Component
-public class SpringContextUtil {
+public class SpringContextUtil implements ApplicationContextAware {
     // Spring应用上下文环境
     private static ApplicationContext applicationContext;
 
@@ -20,6 +21,7 @@ public class SpringContextUtil {
      *
      * @param applicationContext
      */
+    @Override
     public void setApplicationContext(ApplicationContext applicationContext) {
         SpringContextUtil.applicationContext = applicationContext;
     }
