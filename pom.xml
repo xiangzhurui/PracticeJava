@@ -46,7 +46,7 @@
         <poi.version>3.16</poi.version>
 
         <!-- google -->
-        <guava.version>20.0</guava.version>
+        <guava.version>23.0</guava.version>
         <gson.version>2.7</gson.version>
 
         <!-- test -->
