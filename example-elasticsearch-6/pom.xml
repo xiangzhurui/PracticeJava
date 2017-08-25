@@ -11,7 +11,7 @@
 
     <artifactId>example-elasticsearch-6</artifactId>
     <properties>
-        <elasticsearch.version>6.0.0-beta1</elasticsearch.version>
+        <elasticsearch.version>6.1.0</elasticsearch.version>
     </properties>
     <dependencies>
         <!-- Elasticesearch 相关-->

@@ -1,5 +1,9 @@
 package personal.xzr.practice.basic;
 
+/**
+ * 各种赋值方式
+ * @author xiangzhurui
+ */
 public class AssignmentFieldValueSample {
     //实例field，在申明时赋值了
     private final String str = "Java";
