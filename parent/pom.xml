@@ -6,8 +6,15 @@
     <artifactId>practice-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+
+    <name>practice-parent</name>
+    <description>The Java practice parent POM.</description>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
         <jdk.version>1.8</jdk.version>
         <slf4j.version>1.7.21</slf4j.version>
         <lo4j2.version>2.8.2</lo4j2.version>
@@ -339,6 +346,7 @@
                 </configuration>
             </plugin>
         </plugins>
+
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -354,6 +362,7 @@
                         </execution>
                     </executions>
                 </plugin>
+
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
@@ -375,6 +384,7 @@
                         </execution>
                     </executions>
                 </plugin>
+
                 <plugin>
                     <groupId>org.mybatis.generator</groupId>
                     <artifactId>mybatis-generator-maven-plugin</artifactId>
@@ -387,14 +397,4 @@
             </plugins>
         </pluginManagement>
     </build>
-    <modules>
-        <module>utils</module>
-        <module>example-java</module>
-        <module>algorithms</module>
-        <module>design-patterns</module>
-        <module>web</module>
-        <module>example-drools</module>
-        <module>example-elasticsearch</module>
-        <module>example-elasticsearch-6</module>
-    </modules>
 </project>
