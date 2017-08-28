@@ -2,12 +2,18 @@ package me.xzr.practice.example.es.config;
 
 import org.apache.http.HttpHost;
 import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.sniff.HostsSniffer;
+import org.elasticsearch.client.sniff.Sniffer;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import javax.annotation.PostConstruct;
 
 /**
  * 暂不使用
  */
-//@Configuration
+@Configuration
 public class EsConfig {
     @Value("es.host")
     private String host;
@@ -25,9 +31,12 @@ public class EsConfig {
     }
 
 
-//    @Bean(name = "restClient", destroyMethod = "close")
+    @Bean(name = "restClient", destroyMethod = "close")
     public RestClient getRestClient() {
-        return RestClient.builder(hostList).build();
+        return RestClient.builder(hostList)
+//                .setFailureListener(loggingFailureListener)
+                .setMaxRetryTimeoutMillis(60000)
+                .build();
     }
 
     //@Bean
@@ -51,4 +60,16 @@ public class EsConfig {
     public void setHostList(HttpHost[] hostList) {
         this.hostList = hostList;
     }
+//    @PostConstruct
+//    public void afterCreation() {
+//        this.client = RestClient
+//                .builder(new HttpHost("localhost", 9200))
+//                .setFailureListener(loggingFailureListener)
+//                .build();
+//
+//        this.sniffer = Sniffer.builder(this.client,
+//                HostsSniffer.builder(this.client).setScheme(HostsSniffer.Scheme.HTTP)
+//                        .build()
+//        ).build();
+//    }
 }
