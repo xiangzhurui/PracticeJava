@@ -2,16 +2,16 @@ package me.xzr.practice.example.es.config;
 
 import org.apache.http.HttpHost;
 import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.sniff.ElasticsearchHostsSniffer;
 import org.elasticsearch.client.sniff.HostsSniffer;
 import org.elasticsearch.client.sniff.Sniffer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.PostConstruct;
 
 /**
- * 暂不使用
+ * Elasticsearch 配置
  */
 @Configuration
 public class EsConfig {
@@ -25,51 +25,36 @@ public class EsConfig {
     private String scheme;
 
     private HttpHost[] hostList;
+    private Sniffer sniffer;
 
 
     public EsConfig() {
     }
 
 
-    @Bean(name = "restClient", destroyMethod = "close")
+    @Bean(name = "esRestClient", destroyMethod = "close")
     public RestClient getRestClient() {
-        return RestClient.builder(hostList)
-//                .setFailureListener(loggingFailureListener)
-                .setMaxRetryTimeoutMillis(60000)
-                .build();
-    }
 
-    //@Bean
-//    public RestClient getRestClient1() {
-//
-//        restClient = RestClient.builder(hostList)
-//                .setRequestConfigCallback(new RestClientBuilder.RequestConfigCallback() {
+        RestClient client = RestClient.builder(hostList)
+//                .setFailureListener(loggingFailureListener)
+                //.setRequestConfigCallback(new RestClientBuilder.RequestConfigCallback() {
 //                    @Override
 //                    public RequestConfig.Builder customizeRequestConfig(RequestConfig.Builder requestConfigBuilder) {
 //                        return requestConfigBuilder.setConnectTimeout(5000)
 //                                .setSocketTimeout(60000);
 //                    }
 //                })
-//                .setMaxRetryTimeoutMillis(60000)
-//                .build();
-//
-//        return restClient;
-//    }
+                .setMaxRetryTimeoutMillis(60000)
+                .build();
 
-
-    public void setHostList(HttpHost[] hostList) {
-        this.hostList = hostList;
+        return client;
     }
-//    @PostConstruct
-//    public void afterCreation() {
-//        this.client = RestClient
-//                .builder(new HttpHost("localhost", 9200))
-//                .setFailureListener(loggingFailureListener)
-//                .build();
-//
-//        this.sniffer = Sniffer.builder(this.client,
-//                HostsSniffer.builder(this.client).setScheme(HostsSniffer.Scheme.HTTP)
-//                        .build()
-//        ).build();
-//    }
+
+    @Bean(destroyMethod = "close")
+    public Sniffer getSniffer() {
+        this.sniffer = Sniffer.builder(getRestClient())
+                .setHostsSniffer(new ElasticsearchHostsSniffer(getRestClient(),6000,ElasticsearchHostsSniffer.Scheme.HTTP))
+                .build();
+        return sniffer;
+    }
 }
