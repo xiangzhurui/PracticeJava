@@ -1,4 +1,4 @@
-package me.xzr.practice.example.es.config;
+package me.xzr.practice.example.es.util;
 
 import com.google.gson.JsonObject;
 

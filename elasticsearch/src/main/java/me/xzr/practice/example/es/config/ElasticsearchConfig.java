@@ -1,13 +1,12 @@
 package me.xzr.practice.example.es.config;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpHost;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.sniff.ElasticsearchHostsSniffer;
 import org.elasticsearch.client.sniff.Sniffer;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +17,9 @@ import java.util.List;
  */
 @Configuration
 @PropertySource(value = "classpath:es.properties")
-public class EsConfig {
+@ComponentScan(basePackages = {"me.xzr.practice.example.es"})
+@ComponentScans(value = {})
+public class ElasticsearchConfig {
     @Value("${es.host}")
     private String hosts;
 
@@ -29,7 +30,7 @@ public class EsConfig {
     private String scheme;
 
 
-    public EsConfig() {
+    public ElasticsearchConfig() {
     }
 
     /**
@@ -43,11 +44,14 @@ public class EsConfig {
         String[] hostArray = hosts.split(",");
 
         for (String hostname : hostArray) {
+            if (StringUtils.isBlank(hostname)) {
+                continue;
+            }
             HttpHost httpHost = new HttpHost(hostname, port, scheme);
             hostList.add(httpHost);
         }
 
-        RestClient client = RestClient.builder((HttpHost[]) hostList.toArray())
+        RestClient client = RestClient.builder(hostList.toArray(new HttpHost[hostList.size()]))
 //                .setFailureListener(loggingFailureListener)
                 //.setRequestConfigCallback(new RestClientBuilder.RequestConfigCallback() {
 //                    @Override
