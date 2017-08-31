@@ -1,7 +1,7 @@
 package me.xzr.practice.example.es.repo;
 
 import lombok.extern.slf4j.Slf4j;
-import me.xzr.practice.example.es.BaseSpringTest;
+import me.xzr.practice.example.es.config.BaseSpringTest;
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.ContentType;
 import org.apache.http.nio.entity.NStringEntity;
@@ -15,9 +15,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.concurrent.CountDownLatch;
-
+/**
+ * test elasticsearch java rest client api autowired.
+ */
 @Slf4j
-public class RestClientTest extends BaseSpringTest {
+public class ElasticsearchRestClientTest extends BaseSpringTest {
 
     @Autowired
     private RestClient restClient;
