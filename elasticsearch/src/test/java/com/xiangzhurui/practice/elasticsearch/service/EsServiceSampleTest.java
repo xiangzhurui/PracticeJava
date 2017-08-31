@@ -1,6 +1,5 @@
 package com.xiangzhurui.practice.elasticsearch.service;
 
-import com.xiangzhurui.practice.elasticsearch.EsServiceSample;
 import com.xiangzhurui.practice.elasticsearch.config.BaseSpringTest;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;

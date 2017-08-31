@@ -11,14 +11,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PUTResponse {
+public class GetResponst<T> {
     private String _index;
     private String _type;
     private String _id;
-    private Long _version;
-    private String result;
-    private Shards _shards;
-
-    private Boolean created;
-
+    private String _version;
+    private boolean found;
+    private T _source;
 }
