@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>com.xiangzhurui.practice</groupId>
         <artifactId>parent</artifactId>
@@ -9,27 +8,25 @@
         <relativePath>../parent</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>example-elasticsearch</artifactId>
     <description>
-        使用 Java REST client，最低的 Java 版本要求是1.7。
-        Elasticsearch 5.5.2 基于 Lucene 6.6.0。
+                        使用 Java REST client，最低的 Java 版本要求是1.7。Elasticsearch 5.6.0 基于 Lucene 6.6.0。
     </description>
     <properties>
-        <!--the release of Elasticsearch 5.5.2, based on Lucene 6.6.0.//https://www.elastic.co/blog/elasticsearch-5-5-2-released-->
-        <elasticsearch.version>5.5.2</elasticsearch.version>
+        <!--the release of Elasticsearch 5.5.2, based on Lucene 6.6.0.//https://www.elastic.co/blog/elasticsearch-5-5-2-released -->
+        <elasticsearch.version>5.6.0</elasticsearch.version>
         <lucene.version>6.6.0</lucene.version>
     </properties>
     <dependencies>
-        <!-- Elasticesearch 相关-->
+        <!-- Elasticesearch 相关 -->
         <dependency>
             <groupId>org.elasticsearch.client</groupId>
-            <artifactId>rest</artifactId>
+            <artifactId>elasticsearch-rest-client</artifactId>
             <version>${elasticsearch.version}</version>
         </dependency>
         <dependency>
             <groupId>org.elasticsearch.client</groupId>
-            <artifactId>sniffer</artifactId>
+            <artifactId>elasticsearch-rest-high-level-client</artifactId>
             <version>${elasticsearch.version}</version>
         </dependency>
         <dependency>
@@ -44,7 +41,7 @@
             <version>${elasticsearch.version}</version>
             <scope>test</scope>
         </dependency>
-        <!-- /Elasticesearch 相关-->
+        <!-- /Elasticesearch 相关 -->
         <!-- 工具 -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
@@ -90,7 +87,7 @@
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
         </dependency>
-        <!-- /Springframework-->
+        <!-- /Springframework -->
         <!-- 测试框架 可选 -->
         <dependency>
             <groupId>junit</groupId>
