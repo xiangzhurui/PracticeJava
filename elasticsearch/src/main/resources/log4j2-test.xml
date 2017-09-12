@@ -13,15 +13,6 @@
 				</Pattern>
 			</PatternLayout>
 		</Console>
-		<RollingFile name="RollingFileLog" fileName="${baseDir}/app.log" filePattern="${baseDir}/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
-			<PatternLayout>
-				<Pattern>%d{yyyy-MM-dd 'at' HH:mm:ss z} %-5level %class{36} %L %M - %msg%xEx%n</Pattern>
-			</PatternLayout>
-			<Policies>
-				<TimeBasedTriggeringPolicy interval="12" modulate="true"/>
-				<SizeBasedTriggeringPolicy size="250 MB" />
-			</Policies>
-		</RollingFile>
 	</appenders>
 	<!--然后定义logger，只有定义了logger并引入的appender，appender才会生效 -->
 	<loggers>
