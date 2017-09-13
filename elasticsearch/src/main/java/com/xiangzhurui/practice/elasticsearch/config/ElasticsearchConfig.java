@@ -4,9 +4,15 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.http.Header;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpHost;
+import org.apache.http.auth.AuthScope;
+import org.apache.http.auth.UsernamePasswordCredentials;
+import org.apache.http.client.CredentialsProvider;
 import org.apache.http.entity.ContentType;
+import org.apache.http.impl.client.BasicCredentialsProvider;
+import org.apache.http.impl.nio.client.HttpAsyncClientBuilder;
 import org.apache.http.message.BasicHeader;
 import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestClientBuilder;
 import org.elasticsearch.client.sniff.ElasticsearchHostsSniffer;
 import org.elasticsearch.client.sniff.Sniffer;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,15 +30,20 @@ import java.util.List;
 @ComponentScan(basePackages = {"com.xiangzhurui.practice.elasticsearch"})
 @ComponentScans(value = {})
 public class ElasticsearchConfig {
-    @Value("${es.host}")
+    @Value("${es.host:127.0.0.1}")
     private String hosts;
 
-    @Value("${es.port}")
+    @Value("${es.port:9200}")
     private int port;
 
-    @Value("${es.scheme}")
+    @Value("${es.scheme:http}")
     private String scheme;
 
+    @Value("${es.userName:elastic}")
+    private String userName;
+
+    @Value("${es.password:changeme}")
+    private String password;
 
     public ElasticsearchConfig() {
     }
@@ -45,7 +56,7 @@ public class ElasticsearchConfig {
     @Bean(name = "esRestClient", destroyMethod = "close")
     public RestClient getRestClient() {
         List<HttpHost> hostList = new ArrayList<>();
-        String[] hostArray = hosts.split(",");
+        String[] hostArray = hosts.split(","); //可用节点IP列表
 
         for (String hostname : hostArray) {
             if (StringUtils.isBlank(hostname)) {
@@ -54,7 +65,13 @@ public class ElasticsearchConfig {
             HttpHost httpHost = new HttpHost(hostname, port, scheme);
             hostList.add(httpHost);
         }
-        Header[] defaultHeaders = { new BasicHeader(HttpHeaders.CONTENT_TYPE, ContentType.APPLICATION_JSON.toString())};
+
+        //用户认证
+        final CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
+        credentialsProvider.setCredentials(AuthScope.ANY, new UsernamePasswordCredentials(userName, password));
+
+        //默认HTTP请求头
+        Header[] defaultHeaders = {new BasicHeader(HttpHeaders.CONTENT_TYPE, ContentType.APPLICATION_JSON.toString())};
         RestClient client = RestClient.builder(hostList.toArray(new HttpHost[hostList.size()]))
 //                .setFailureListener(loggingFailureListener) //每次失败请求通知
                 //.setRequestConfigCallback(new RestClientBuilder.RequestConfigCallback() {
@@ -64,6 +81,12 @@ public class ElasticsearchConfig {
 //                                .setSocketTimeout(60000);
 //                    }
 //                })
+                .setHttpClientConfigCallback(new RestClientBuilder.HttpClientConfigCallback() {
+                    @Override
+                    public HttpAsyncClientBuilder customizeHttpClient(HttpAsyncClientBuilder httpClientBuilder) {
+                        return httpClientBuilder.setDefaultCredentialsProvider(credentialsProvider);
+                    }
+                })
                 .setDefaultHeaders(defaultHeaders) // 设置默认请求头
                 .setMaxRetryTimeoutMillis(60000)  // 设置超时时间
                 .build();
