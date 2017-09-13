@@ -1,4 +1,4 @@
-package com.xiangzhurui.practice.elasticsearch.repo;
+package com.xiangzhurui.practice.elasticsearch.service;
 
 import lombok.extern.slf4j.Slf4j;
 import com.xiangzhurui.practice.elasticsearch.config.BaseSpringTest;
@@ -19,7 +19,7 @@ import java.util.concurrent.CountDownLatch;
  * test elasticsearch java rest client api autowired.
  */
 @Slf4j
-public class ElasticsearchRestClientTest extends BaseSpringTest {
+public class ElasticsearchLowLevelRestClientTest extends BaseSpringTest {
 
     @Autowired
     private RestClient restClient;

@@ -13,6 +13,7 @@ import org.apache.http.impl.nio.client.HttpAsyncClientBuilder;
 import org.apache.http.message.BasicHeader;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestClientBuilder;
+import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.client.sniff.ElasticsearchHostsSniffer;
 import org.elasticsearch.client.sniff.Sniffer;
 import org.springframework.beans.factory.annotation.Value;
@@ -49,12 +50,12 @@ public class ElasticsearchConfig {
     }
 
     /**
-     * Elasticsearch 客户端
+     * Elasticsearch 低级 REST 客户端
      *
-     * @return RestClient
+     * @return client
      */
-    @Bean(name = "esRestClient", destroyMethod = "close")
-    public RestClient getRestClient() {
+    @Bean(name = "lowLevelRestClient", destroyMethod = "close")
+    public RestClient getLowLevelRestClient() {
         List<HttpHost> hostList = new ArrayList<>();
         String[] hostArray = hosts.split(","); //可用节点IP列表
 
@@ -95,15 +96,26 @@ public class ElasticsearchConfig {
     }
 
     /**
+     * Elasticsearch 低级 REST 客户端
+     *
+     * @return client
+     */
+    @Bean(name = "highLevelClient")
+    public RestHighLevelClient getHighLevelClient() {
+        RestHighLevelClient client = new RestHighLevelClient(getLowLevelRestClient());
+        return client;
+    }
+
+    /**
      * 节点嗅探。探测集群节点，并更新节点host列表。
      *
      * @return Sniffer
      */
     @Bean(destroyMethod = "close")
     public Sniffer getSniffer() {
-        Sniffer sniffer = Sniffer.builder(getRestClient())
+        Sniffer sniffer = Sniffer.builder(getLowLevelRestClient())
                 .setSniffIntervalMillis(30000)
-                .setHostsSniffer(new ElasticsearchHostsSniffer(getRestClient(), 6000, ElasticsearchHostsSniffer.Scheme.HTTP))
+                .setHostsSniffer(new ElasticsearchHostsSniffer(getLowLevelRestClient(), 6000, ElasticsearchHostsSniffer.Scheme.HTTP))
                 .build();
         return sniffer;
     }

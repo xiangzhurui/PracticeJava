@@ -1,4 +1,4 @@
-package com.xiangzhurui.practice.elasticsearch.repo;
+package com.xiangzhurui.practice.elasticsearch.config;
 
 import lombok.extern.slf4j.Slf4j;
 import com.xiangzhurui.practice.elasticsearch.config.BaseSpringTest;

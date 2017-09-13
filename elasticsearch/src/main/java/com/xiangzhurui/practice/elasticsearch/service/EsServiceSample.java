@@ -25,7 +25,6 @@ import java.util.Collections;
 @Service
 public class EsServiceSample {
     @Autowired()
-    @Qualifier("esRestClient")
     private RestClient restClient;
 
     public boolean put() throws IOException {
