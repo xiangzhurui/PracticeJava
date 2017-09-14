@@ -179,14 +179,7 @@
             <artifactId>jedis</artifactId>
         </dependency>
         <!-- /工具类库 -->
-        <!-- JavaMail API - http://www.oracle.com/technetwork/jjavamailmail/faq/index.html -->
-        <!-- <dependency>
-            <groupId>javax.mail</groupId>
-            <artifactId>javax.mail-api</artifactId>
-            <version>1.5.6</version>
-            </dependency> -->
-        <!-- The JavaMail reference implementation jar file, including the SMTP, IMAP, and POP3 protocol providers
-            - https://java.net/projejavamailmail/pages/Home -->
+        <!-- JavaMail https://javaee.github.io/javamail/ -->
         <dependency>
             <groupId>com.sun.mail</groupId>
             <artifactId>javax.mail</artifactId>
