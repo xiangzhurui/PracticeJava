@@ -7,8 +7,18 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>practice-parent</name>
+    <name>PracticeJava</name>
     <description>The Java practice parent POM.</description>
+
+    <modules>
+        <module>algorithms</module>
+        <module>design-patterns</module>
+        <module>java</module>
+        <module>util</module>
+        <module>elasticsearch</module>
+        <module>drools</module>
+        <module>web</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
