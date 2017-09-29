@@ -1,4 +1,4 @@
-package com.xiangzhurui.config;
+package com.xiangzhurui.drools.config;
 
 import org.kie.api.KieBase;
 import org.kie.api.KieServices;
@@ -24,8 +24,14 @@ import java.io.IOException;
  * @version 2017/9/29
  */
 @Configuration
-@ComponentScan(basePackages = {"com.xiangzhurui.service.drools"})
+@ComponentScan(basePackages = {"com.xiangzhurui.drools"})
 public class DroolsCongfig {
+
+    @Bean
+    public KieContainer kieContainer() throws IOException {
+        KieServices ks = KieServices.Factory.get();
+        return ks.getKieClasspathContainer();
+    }
 
     private static final String RULES_PATH = "rules";
 
@@ -39,8 +45,9 @@ public class DroolsCongfig {
     }
 
 
+
     @Bean
-    public KieContainer kieContainer() throws IOException {
+    public KieContainer kieContainer1() throws IOException {
         final KieRepository kieRepository = getKieServices().getRepository();
 
         kieRepository.addKieModule(new KieModule() {
@@ -75,7 +82,8 @@ public class DroolsCongfig {
         return resourcePatternResolver.getResources("classpath*:" + RULES_PATH + File.separator + "**/*.*");
     }
 
-    private KieServices getKieServices() {
+    @Bean(name = "kieServices")
+    public KieServices getKieServices() {
         return KieServices.Factory.get();
     }
 }
