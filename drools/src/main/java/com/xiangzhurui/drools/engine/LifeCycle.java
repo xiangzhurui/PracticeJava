@@ -1,4 +1,4 @@
-package com.xiangzhurui.drools.service;
+package com.xiangzhurui.drools.engine;
 
 /**
  * 规则生命周期
