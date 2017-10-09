@@ -28,6 +28,10 @@ import java.io.IOException;
 public class DroolsCongfig {
 
     @Bean
+    public KModuleBeanFactoryPostProcessor kiePostProcessor() {
+        return new KModuleBeanFactoryPostProcessor();
+    }
+    @Bean
     public KieContainer kieContainer() throws IOException {
         KieServices ks = KieServices.Factory.get();
         return ks.getKieClasspathContainer();
@@ -72,10 +76,6 @@ public class DroolsCongfig {
         return kieContainer().newKieSession();
     }
 
-    @Bean
-    public KModuleBeanFactoryPostProcessor kiePostProcessor() {
-        return new KModuleBeanFactoryPostProcessor();
-    }
 
     private Resource[] getRuleFiles() throws IOException {
         ResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
