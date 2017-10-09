@@ -1,16 +1,16 @@
 package com.xiangzhurui.drools.util;
 
-import com.sun.istack.internal.NotNull;
 import lombok.extern.slf4j.Slf4j;
 import org.kie.api.KieServices;
-import org.kie.api.builder.*;
+import org.kie.api.builder.KieBuilder;
+import org.kie.api.builder.KieFileSystem;
+import org.kie.api.builder.Message;
+import org.kie.api.builder.ReleaseId;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.StatelessKieSession;
 
 import java.io.File;
-import java.io.PrintStream;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -93,7 +93,7 @@ public class KieUtils {
         kieBuilder.buildAll(); // kieModule is automatically deployed to KieRepository if successfully built.
         if (kieBuilder.getResults().hasMessages(Message.Level.ERROR)) {
             log.error("错误信息：{}", kieBuilder.getResults());
-            throw new RuntimeException("Build Errors:\n" + kieBuilder.getResults().toString());
+            throw new RuntimeException("构建错误：\n" + kieBuilder.getResults().toString());
         }
 
         KieContainer kContainer = kieServices.newKieContainer(releaseId);

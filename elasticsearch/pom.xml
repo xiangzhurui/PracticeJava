@@ -14,8 +14,8 @@
     </description>
     <properties>
         <!--the release of Elasticsearch 5.6.2, based on Lucene 6.6.1. https://www.elastic.co/blog/elasticsearch-5-6-2-released -->
-        <elasticsearch.version>5.6.2</elasticsearch.version>
-        <lucene.version>6.6.1</lucene.version>
+        <elasticsearch.version>6.0.0-rc1</elasticsearch.version>
+        <lucene.version>7.0.0</lucene.version>
     </properties>
     <dependencies>
         <!-- Elasticesearch 相关 -->

@@ -7,7 +7,14 @@ import java.util.List;
  * @version 2017/10/9
  */
 public class RuleUtils {
-    public static String generateRuleScript(List<String> list){
+    /**
+     * 生成规则脚本
+     *
+     * @param list
+     *
+     * @return
+     */
+    public static String generateRuleScript(List<String> list) {
         return null;
     }
 }

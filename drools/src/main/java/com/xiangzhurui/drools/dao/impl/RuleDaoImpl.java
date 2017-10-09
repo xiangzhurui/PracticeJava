@@ -17,7 +17,7 @@ public class RuleDaoImpl implements RuleDao {
     }
 
     @Override
-    public List<String> getAll() {
+    public List<String> getAll(String strategyId) {
         return null;
     }
 }

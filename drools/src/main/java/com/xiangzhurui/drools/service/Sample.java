@@ -10,6 +10,7 @@ import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -19,7 +20,7 @@ import java.util.Date;
  * @author xiangzhurui
  * @version 2017/9/29
  */
-@Component
+@Service
 public class Sample {
     @KContainer
     private KieContainer kieContainer;

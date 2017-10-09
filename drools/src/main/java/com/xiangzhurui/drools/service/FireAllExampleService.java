@@ -24,9 +24,7 @@ public class FireAllExampleService {
         session.setGlobal("", new Object());
 
         List<? extends Command> list = new ArrayList<>();
-        list.add(() -> {
-            new Object();
-        });
-        session.execute();
+
+        //session.execute();
     }
 }

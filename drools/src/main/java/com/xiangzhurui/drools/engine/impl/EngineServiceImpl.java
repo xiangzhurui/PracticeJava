@@ -13,18 +13,20 @@ import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.StatelessKieSession;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
+ * 初始化规则，及重新构建规则
+ *
  * @author xiangzhurui
  * @version 2017/9/29
  */
 @Slf4j
-@Component
+@Service
 public class EngineServiceImpl implements EngineService, InitializingBean {
 
     @Autowired
