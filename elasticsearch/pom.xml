@@ -9,12 +9,13 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>example-elasticsearch</artifactId>
     <description>
-                        使用 Java REST client，最低的 Java 版本要求是1.7。Elasticsearch 5.6.0 基于 Lucene 6.6.0。
+        Java REST Client [5.6.2] Java 版本最低的要求是1.7。Elasticsearch 5.6.2 基于 Lucene 6.6.1。
+        Java REST Client [5.6.2] 文档：https://www.elastic.co/guide/en/elasticsearch/client/java-rest/6.0/index.html
     </description>
     <properties>
-        <!--the release of Elasticsearch 5.5.2, based on Lucene 6.6.0.//https://www.elastic.co/blog/elasticsearch-5-5-2-released -->
-        <elasticsearch.version>5.6.0</elasticsearch.version>
-        <lucene.version>6.6.0</lucene.version>
+        <!--the release of Elasticsearch 5.6.2, based on Lucene 6.6.1. https://www.elastic.co/blog/elasticsearch-5-6-2-released -->
+        <elasticsearch.version>5.6.2</elasticsearch.version>
+        <lucene.version>6.6.1</lucene.version>
     </properties>
     <dependencies>
         <!-- Elasticesearch 相关 -->
