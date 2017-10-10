@@ -9,8 +9,7 @@
     <artifactId>web</artifactId>
     <packaging>war</packaging>
     <properties>
-        <elasticsearch.version>5.5.2</elasticsearch.version>
-        <jersey2.version>2.25</jersey2.version>
+        <jersey2.version>2.26</jersey2.version>
     </properties>
     <dependencies>
         <dependency>
@@ -235,6 +234,11 @@
             <version>2.0.1</version>
         </dependency>
         <dependency>
+            <groupId>org.glassfish.jersey.ext</groupId>
+            <artifactId>jersey-spring4</artifactId>
+            <version>${jersey2.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-servlet</artifactId>
             <version>${jersey2.version}</version>
@@ -260,18 +264,6 @@
             <version>${jersey2.version}</version>
         </dependency>
         <!-- /JAX-RS & Jersey2 -->
-        <!-- Elasticesearch 相关-->
-        <dependency>
-            <groupId>org.elasticsearch.client</groupId>
-            <artifactId>rest</artifactId>
-            <version>${elasticsearch.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.elasticsearch.client</groupId>
-            <artifactId>sniffer</artifactId>
-            <version>${elasticsearch.version}</version>
-        </dependency>
-        <!-- /Elasticesearch 相关-->
     </dependencies>
     <build>
         <plugins>

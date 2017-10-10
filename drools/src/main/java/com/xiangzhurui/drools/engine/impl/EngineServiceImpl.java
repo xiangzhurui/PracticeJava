@@ -3,7 +3,7 @@ package com.xiangzhurui.drools.engine.impl;
 import com.xiangzhurui.drools.dao.RuleDao;
 import com.xiangzhurui.drools.dao.Strategy;
 import com.xiangzhurui.drools.engine.EngineService;
-import com.xiangzhurui.drools.util.KieUtils;
+import com.xiangzhurui.drools.util.KieFactory;
 import com.xiangzhurui.drools.util.RuleUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.kie.api.KieServices;
@@ -46,12 +46,12 @@ public class EngineServiceImpl implements EngineService, InitializingBean {
 
     @Override
     public StatelessKieSession getStatelessKieSession(ReleaseId releaseId) {
-        return KieUtils.getStatelessKieSession(releaseId);
+        return KieFactory.getStatelessKieSession(releaseId);
     }
 
     @Override
     public KieSession getKieSession(ReleaseId releaseId) {
-        return KieUtils.getKieSession(releaseId);
+        return KieFactory.getKieSession(releaseId);
     }
 
     @Override
@@ -67,8 +67,8 @@ public class EngineServiceImpl implements EngineService, InitializingBean {
         for (Map.Entry<ReleaseId, String> entry : ruleScriptMap.entrySet()) {
             ReleaseId releaseId = entry.getKey();
             String ruleStr = entry.getValue();
-            KieContainer kieContainer = KieUtils.build(releaseId, ruleStr);
-            KieUtils.putKieContainer(kieContainer);
+            KieContainer kieContainer = KieFactory.build(releaseId, ruleStr);
+            KieFactory.putKieContainer(kieContainer);
         }
         log.info("规则加载载成功");
     }

@@ -6,8 +6,10 @@ import org.junit.Test;
 import org.kie.api.KieServices;
 import org.kie.api.builder.KieBuilder;
 import org.kie.api.builder.KieFileSystem;
+import org.kie.api.builder.ReleaseId;
 import org.kie.api.builder.model.KieBaseModel;
 import org.kie.api.builder.model.KieModuleModel;
+import org.kie.api.builder.model.KieSessionModel;
 import org.kie.api.io.KieResources;
 import org.kie.api.io.Resource;
 import org.kie.api.runtime.KieContainer;
@@ -21,6 +23,24 @@ import org.kie.api.runtime.KieSession;
  */
 @Slf4j
 public class DroolsTest {
+
+    @Test
+    public void testKieModuleModel() {
+        KieServices kieServices = KieServices.Factory.get();
+        ReleaseId releaseId = kieServices.newReleaseId("com.xiangzhurui", "example-drools", "0.1");
+
+        KieModuleModel moduleModel = kieServices.newKieModuleModel();
+        KieBaseModel baseModel = moduleModel.newKieBaseModel(releaseId.toString())
+                .addPackage("rules" + "/" + releaseId.getGroupId() + "/" + releaseId.getArtifactId());
+
+        baseModel.newKieSessionModel("session")
+                .setDefault(true)
+                .setType(KieSessionModel.KieSessionType.STATELESS);
+
+        String kmoduleXML = moduleModel.toXML();
+        log.info(releaseId.toString());
+        log.info("xml:\n{}", kmoduleXML);
+    }
 
     @Ignore
     @Test
@@ -37,6 +57,7 @@ public class DroolsTest {
         int i = kieSession.fireAllRules();
     }
 
+    @Ignore
     @Test
     public void sample() {
         // 获取 drools 实现的 KieServices 实例

@@ -16,6 +16,8 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Drools Spring 集成配置
@@ -26,6 +28,11 @@ import java.io.IOException;
 @Configuration
 @ComponentScan(basePackages = {"com.xiangzhurui.drools"})
 public class DroolsCongfig {
+
+    @Bean
+    public Map<ReleaseId,KieContainer> containerMap(){
+        return new HashMap<>();
+    }
 
     @Bean
     public KModuleBeanFactoryPostProcessor kiePostProcessor() {
