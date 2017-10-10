@@ -3,6 +3,7 @@ package com.xiangzhurui.service;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.kie.api.KieBase;
 import org.kie.api.KieServices;
 import org.kie.api.builder.KieBuilder;
 import org.kie.api.builder.KieFileSystem;
@@ -14,6 +15,7 @@ import org.kie.api.io.KieResources;
 import org.kie.api.io.Resource;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
+import org.kie.api.runtime.StatelessKieSession;
 
 /**
  * 简单示例
@@ -30,6 +32,7 @@ public class DroolsTest {
         ReleaseId releaseId = kieServices.newReleaseId("com.xiangzhurui", "example-drools", "0.1");
 
         KieModuleModel moduleModel = kieServices.newKieModuleModel();
+
         KieBaseModel baseModel = moduleModel.newKieBaseModel(releaseId.toString())
                 .addPackage("rules" + "/" + releaseId.getGroupId() + "/" + releaseId.getArtifactId());
 
@@ -40,6 +43,19 @@ public class DroolsTest {
         String kmoduleXML = moduleModel.toXML();
         log.info(releaseId.toString());
         log.info("xml:\n{}", kmoduleXML);
+
+        KieResources kieResources = kieServices.getResources();
+        Resource resources = kieResources.newClassPathResource("rules/test.drl"); //实际上为虚拟路径
+        KieFileSystem fileSystem = kieServices.newKieFileSystem();
+        fileSystem.write(resources);
+        // 7. 最后通过 KieBuilder 进行构建就将该 kmodule 加入到 KieRepository 中,
+        // 这样就将自定义的kmodule加入到引擎中了
+        KieBuilder kieBuilder = kieServices.newKieBuilder(fileSystem);
+        kieBuilder.buildAll(); // 编译
+        KieContainer kieContainer = kieServices.newKieClasspathContainer();
+//        KieContainer kieContainer = kieServices.newKieContainer(kieServices.getRepository().getDefaultReleaseId());
+        StatelessKieSession session = kieContainer.newStatelessKieSession();
+        log.info("ss");
     }
 
     @Ignore
