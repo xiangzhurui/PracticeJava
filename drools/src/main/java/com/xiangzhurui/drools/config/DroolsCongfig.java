@@ -30,14 +30,20 @@ import java.util.Map;
 public class DroolsCongfig {
 
     @Bean
-    public Map<ReleaseId,KieContainer> containerMap(){
+    public Map<ReleaseId, KieContainer> containerMap() {
         return new HashMap<>();
     }
 
+    /**
+     * 使用drools 注解所需
+     *
+     * @return
+     */
     @Bean
     public KModuleBeanFactoryPostProcessor kiePostProcessor() {
         return new KModuleBeanFactoryPostProcessor();
     }
+
     @Bean
     public KieContainer kieContainer() throws IOException {
         KieServices ks = KieServices.Factory.get();
@@ -54,7 +60,6 @@ public class DroolsCongfig {
         }
         return kieFileSystem;
     }
-
 
 
     @Bean

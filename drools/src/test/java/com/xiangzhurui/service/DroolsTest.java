@@ -5,9 +5,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.kie.api.KieBase;
 import org.kie.api.KieServices;
-import org.kie.api.builder.KieBuilder;
-import org.kie.api.builder.KieFileSystem;
-import org.kie.api.builder.ReleaseId;
+import org.kie.api.builder.*;
 import org.kie.api.builder.model.KieBaseModel;
 import org.kie.api.builder.model.KieModuleModel;
 import org.kie.api.builder.model.KieSessionModel;
@@ -29,11 +27,11 @@ public class DroolsTest {
     @Test
     public void testKieModuleModel() {
         KieServices kieServices = KieServices.Factory.get();
-        ReleaseId releaseId = kieServices.newReleaseId("com.xiangzhurui", "example-drools", "0.1");
+        ReleaseId releaseId = kieServices.newReleaseId("com.xiangzhurui", "example-drools", "1.0-SNAPSHOT");
 
         KieModuleModel moduleModel = kieServices.newKieModuleModel();
-
-        KieBaseModel baseModel = moduleModel.newKieBaseModel(releaseId.toString())
+        String baseModelName = releaseId.getGroupId() + "_" + releaseId.getArtifactId() + "_" + releaseId.getVersion();
+        KieBaseModel baseModel = moduleModel.newKieBaseModel(baseModelName)
                 .addPackage("rules" + "/" + releaseId.getGroupId() + "/" + releaseId.getArtifactId());
 
         baseModel.newKieSessionModel("session")
@@ -48,13 +46,24 @@ public class DroolsTest {
         Resource resources = kieResources.newClassPathResource("rules/test.drl"); //实际上为虚拟路径
         KieFileSystem fileSystem = kieServices.newKieFileSystem();
         fileSystem.write(resources);
+        fileSystem.writeKModuleXML(kmoduleXML);
+
+        final KieRepository repository = kieServices.getRepository();
+        repository.addKieModule(() -> releaseId);
         // 7. 最后通过 KieBuilder 进行构建就将该 kmodule 加入到 KieRepository 中,
         // 这样就将自定义的kmodule加入到引擎中了
-        KieBuilder kieBuilder = kieServices.newKieBuilder(fileSystem);
-        kieBuilder.buildAll(); // 编译
-        KieContainer kieContainer = kieServices.newKieClasspathContainer();
+        KieBuilder kieBuilder = kieServices.newKieBuilder(fileSystem)
+                .buildAll(); // 编译
+        Results results = kieBuilder.getResults();
+        if (results.hasMessages(Message.Level.ERROR)) {
+            log.error("{}", results.getMessages());
+        }
 //        KieContainer kieContainer = kieServices.newKieContainer(kieServices.getRepository().getDefaultReleaseId());
-        StatelessKieSession session = kieContainer.newStatelessKieSession();
+        KieContainer kieContainer = kieServices.newKieContainer(releaseId);
+
+        log.info("默认值：\n{}", kieServices.getRepository().getDefaultReleaseId());
+        KieBase base = kieContainer.getKieBase(baseModelName);
+        StatelessKieSession session = base.newStatelessKieSession();
         log.info("ss");
     }
 
