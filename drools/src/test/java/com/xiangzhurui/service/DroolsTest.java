@@ -47,12 +47,12 @@ public class DroolsTest {
         log.info(releaseId.toString());
         log.info("xml:\n{}", kmoduleXML);
         KieResources kieResources = kieServices.getResources();
-//        Resource resources = kieResources.newClassPathResource("rules/test.drl"); //实际上为虚拟路径
-        Resource resources = kieResources.newInputStreamResource(getClass().getResourceAsStream("rules/test.drl"));
+        Resource resources = kieResources.newClassPathResource("rules/test.drl"); //实际上为虚拟路径
+//        Resource resources = kieResources.newInputStreamResource(getClass().getResourceAsStream("/rules/test.drl"));
         KieFileSystem fileSystem = kieServices.newKieFileSystem();
         fileSystem.write(resources);
         fileSystem.writeKModuleXML(kmoduleXML);
-
+        fileSystem.generateAndWritePomXML(releaseId);
         final KieRepository repository = kieServices.getRepository();
         repository.addKieModule(() -> releaseId);
         // 7. 最后通过 KieBuilder 进行构建就将该 kmodule 加入到 KieRepository 中,
@@ -63,10 +63,11 @@ public class DroolsTest {
         if (results.hasMessages(Message.Level.ERROR)) {
             log.error("{}", results.getMessages());
         }
-        KieContainer kieContainer = kieServices.newKieContainer(kieServices.getRepository().getDefaultReleaseId());
-//        KieContainer kieContainer = kieServices.newKieContainer(releaseId);
-
         log.info("默认值：\n{}", kieServices.getRepository().getDefaultReleaseId());
+
+//        KieContainer kieContainer = kieServices.newKieContainer(kieServices.getRepository().getDefaultReleaseId());
+        KieContainer kieContainer = kieServices.newKieContainer(releaseId);
+
         KieBase base = kieContainer.getKieBase(baseModelName);
         StatelessKieSession session = base.newStatelessKieSession();
         log.info("ss");
