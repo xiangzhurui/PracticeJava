@@ -29,7 +29,8 @@ public class DroolsTest {
         KieServices kieServices = KieServices.Factory.get();
         ReleaseId releaseId = kieServices.newReleaseId("com.xiangzhurui", "example-drools", "1.0-SNAPSHOT");
 
-        KieModuleModel moduleModel = kieServices.newKieModuleModel();
+        KieModuleModel moduleModel = kieServices.newKieModuleModel()
+                .setConfigurationProperty("name", "hahah");
         String baseModelName = releaseId.getGroupId() + "_" + releaseId.getArtifactId() + "_" + releaseId.getVersion();
         KieBaseModel baseModel = moduleModel.newKieBaseModel(baseModelName)
                 .addPackage("rules" + "/" + releaseId.getGroupId() + "/" + releaseId.getArtifactId());
@@ -38,12 +39,16 @@ public class DroolsTest {
                 .setDefault(true)
                 .setType(KieSessionModel.KieSessionType.STATELESS);
 
+        moduleModel.newKieBaseModel("kbase1")
+                .addPackage(releaseId.getGroupId())
+        ;
+
         String kmoduleXML = moduleModel.toXML();
         log.info(releaseId.toString());
         log.info("xml:\n{}", kmoduleXML);
-
         KieResources kieResources = kieServices.getResources();
-        Resource resources = kieResources.newClassPathResource("rules/test.drl"); //实际上为虚拟路径
+//        Resource resources = kieResources.newClassPathResource("rules/test.drl"); //实际上为虚拟路径
+        Resource resources = kieResources.newInputStreamResource(getClass().getResourceAsStream("rules/test.drl"));
         KieFileSystem fileSystem = kieServices.newKieFileSystem();
         fileSystem.write(resources);
         fileSystem.writeKModuleXML(kmoduleXML);
@@ -58,8 +63,8 @@ public class DroolsTest {
         if (results.hasMessages(Message.Level.ERROR)) {
             log.error("{}", results.getMessages());
         }
-//        KieContainer kieContainer = kieServices.newKieContainer(kieServices.getRepository().getDefaultReleaseId());
-        KieContainer kieContainer = kieServices.newKieContainer(releaseId);
+        KieContainer kieContainer = kieServices.newKieContainer(kieServices.getRepository().getDefaultReleaseId());
+//        KieContainer kieContainer = kieServices.newKieContainer(releaseId);
 
         log.info("默认值：\n{}", kieServices.getRepository().getDefaultReleaseId());
         KieBase base = kieContainer.getKieBase(baseModelName);
