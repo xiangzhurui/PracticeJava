@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package personal.xzr.practice.util.sample.email;
+package personal.xzr.practice.util.email;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
