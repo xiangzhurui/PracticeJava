@@ -7,6 +7,7 @@ import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 import org.kie.internal.io.ResourceFactory;
 import org.kie.spring.KModuleBeanFactoryPostProcessor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -29,10 +30,9 @@ import java.util.Map;
 @ComponentScan(basePackages = {"com.xiangzhurui.drools"})
 public class DroolsCongfig {
 
-    @Bean
-    public Map<ReleaseId, KieContainer> containerMap() {
-        return new HashMap<>();
-    }
+    @Value("${drools.rules.path:rules}")
+    private String RULES_PATH;
+
 
     /**
      * 使用drools 注解所需
@@ -50,7 +50,6 @@ public class DroolsCongfig {
         return ks.getKieClasspathContainer();
     }
 
-    private static final String RULES_PATH = "rules";
 
     @Bean
     public KieFileSystem kieFileSystem() throws IOException {
@@ -94,8 +93,7 @@ public class DroolsCongfig {
         return resourcePatternResolver.getResources("classpath*:" + RULES_PATH + File.separator + "**/*.*");
     }
 
-    @Bean(name = "kieServices")
-    public KieServices getKieServices() {
+    private KieServices getKieServices() {
         return KieServices.Factory.get();
     }
 }

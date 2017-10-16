@@ -25,7 +25,7 @@
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <jdk.version>1.8</jdk.version>
+        <java.version>1.8</java.version>
         <slf4j.version>1.7.21</slf4j.version>
         <lo4j2.version>2.8.2</lo4j2.version>
         <lombok.version>1.16.16</lombok.version>
@@ -382,8 +382,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>${jdk.version}</source>
-                    <target>${jdk.version}</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
         </plugins>
