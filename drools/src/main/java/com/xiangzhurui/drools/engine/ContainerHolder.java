@@ -17,6 +17,7 @@ import java.util.Map;
 public class ContainerHolder implements InitializingBean {
     @Autowired
     private KieContainer container;
+
     private Map<ReleaseId, KieContainer> containerMap;
 
     public Map<ReleaseId, KieContainer> getContainerMap() {

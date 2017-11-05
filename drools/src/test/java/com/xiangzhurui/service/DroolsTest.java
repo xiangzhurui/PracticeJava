@@ -70,7 +70,9 @@ public class DroolsTest {
 
         KieBase base = kieContainer.getKieBase(baseModelName);
         StatelessKieSession session = base.newStatelessKieSession();
+        KieSession kieSession =  kieContainer.newKieSession();
         log.info("ss");
+
     }
 
     @Ignore
@@ -124,7 +126,7 @@ public class DroolsTest {
         // 通过 kContainer 获取 kmodule.xml 中定义的 ksession
         KieSession kieSession = kieContainer.newKieSession("ksession-rules");
         // 向 workingMemory 中加入一个对象
-        kieSession.insert("Tom");
+        kieSession.insergiyt("Tom");
         // 通知规则引擎执行规则
         kieSession.fireAllRules();
     }
