@@ -22,11 +22,17 @@ public class SystemClassTest {
         for (Map.Entry entry : systemProperties.entrySet()) {
             System.out.println(entry.getKey() + "=" + entry.getValue());
         }
+
+
+
         String lineSeparator = System.getProperty("line.separator");
-        String lineSeparator1 = System.getProperty("line.separator", "\n");
-        System.out.println("lineSeparator+:/" + lineSeparator1 + "]");
-        assertEquals("\n", lineSeparator);
-        assertEquals("\n", lineSeparator1);
+        if("windows".equalsIgnoreCase(System.getProperty("sun.desktop"))){
+            log.info("当前处在 Windows 平台");
+            assertEquals("\r\n", lineSeparator);
+        }else{
+            log.info("当前处在非 Windows 平台");
+            assertEquals("\n", lineSeparator);
+        }
 
     }
 }
