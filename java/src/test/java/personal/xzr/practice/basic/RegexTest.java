@@ -3,8 +3,11 @@ package personal.xzr.practice.basic;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
+import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author xiangzhurui
@@ -23,8 +26,5 @@ public class RegexTest {
         }
     }
 
-    @Test
-    public void test() {
 
-    }
 }
