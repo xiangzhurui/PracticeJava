@@ -3,6 +3,7 @@ package personal.xzr.practice.basic;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
+import java.util.Date;
 import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -24,6 +25,10 @@ public class RegexTest {
         if (mat.find()) {
             System.out.println(mat.group(1));
         }
+
+        Class clazz = Date.class;
+        System.out.println(clazz.getName());
+        System.out.println(clazz.getSimpleName());
     }
 
 
