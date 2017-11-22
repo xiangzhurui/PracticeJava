@@ -45,4 +45,15 @@ public class SpringContextUtil implements ApplicationContextAware {
     public static Object getBean(String name) throws BeansException {
         return applicationContext.getBean(name);
     }
+
+    /**
+     * 通过类型获取bean
+     * @param requiredType
+     * @param <T>
+     * @return
+     * @throws BeansException
+     */
+    public static <T> T getBean(Class<T> requiredType) throws BeansException {
+        return applicationContext.getBean(requiredType);
+    }
 }
