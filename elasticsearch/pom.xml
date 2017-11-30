@@ -9,25 +9,23 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>example-elasticsearch</artifactId>
     <description>
-        Java REST Client [5.6.2] Java 版本最低的要求是1.7。Elasticsearch 5.6.2 基于 Lucene 6.6.1。
-        Java REST Client [5.6.2] 文档：https://www.elastic.co/guide/en/elasticsearch/client/java-rest/6.0/index.html
+        Java REST Client [6.0.0] Java 版本最低的要求是1.7。Elasticsearch 6.0.0 基于 Lucene 7.0.1。
+        Java REST Client [6.0.0] 文档：https://www.elastic.co/guide/en/elasticsearch/client/java-rest/6.0/index.html
+        Java High Level REST Client 6.0.0 最低要求jdk 1.8
     </description>
     <dependencies>
         <!-- Elasticesearch 相关 -->
         <dependency>
             <groupId>org.elasticsearch.client</groupId>
             <artifactId>elasticsearch-rest-client</artifactId>
-            <version>${elasticsearch.version}</version>
         </dependency>
         <dependency>
             <groupId>org.elasticsearch.client</groupId>
             <artifactId>elasticsearch-rest-high-level-client</artifactId>
-            <version>${elasticsearch.version}</version>
         </dependency>
         <dependency>
             <groupId>org.elasticsearch.client</groupId>
             <artifactId>elasticsearch-rest-client-sniffer</artifactId>
-            <version>${elasticsearch.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.lucene</groupId>
@@ -38,8 +36,6 @@
         <dependency>
             <groupId>org.elasticsearch.test</groupId>
             <artifactId>framework</artifactId>
-            <version>${elasticsearch.version}</version>
-            <scope>test</scope>
         </dependency>
         <!-- /Elasticesearch 相关 -->
         <!-- 工具 -->

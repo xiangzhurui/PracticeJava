@@ -63,8 +63,8 @@
 
         <!-- elasticsearch -->
         <!--the release of Elasticsearch 5.6.2, based on Lucene 6.6.1. https://www.elastic.co/blog/elasticsearch-5-6-2-released -->
-        <elasticsearch.version>6.0.0-rc1</elasticsearch.version>
-        <lucene.version>7.0.0</lucene.version>
+        <elasticsearch.version>6.0.0</elasticsearch.version>
+        <lucene.version>7.0.1</lucene.version>
 
         <!-- plugins -->
         <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
@@ -367,9 +367,32 @@
                 <version>4.4.6</version>
             </dependency>
             <!-- Apache Commons - end -->
-
+            <!--Elasticsearch start-->
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-client</artifactId>
+                <version>${elasticsearch.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-client-sniffer</artifactId>
+                <version>${elasticsearch.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-high-level-client</artifactId>
+                <version>${elasticsearch.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.elasticsearch.test</groupId>
+                <artifactId>framework</artifactId>
+                <version>${elasticsearch.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <!--Elasticsearch end-->
         </dependencies>
     </dependencyManagement>
+
     <build>
         <plugins>
             <plugin>

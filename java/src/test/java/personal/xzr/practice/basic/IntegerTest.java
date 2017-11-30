@@ -6,12 +6,14 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * Integer 特性
+ *
  * @author XiangZhuRui
  */
 public class IntegerTest {
 
     /**
      * Integer 对象在值为-128~127 之间时使用内部的IntegerCache 缓存。
+     *
      * @author XiangZhuRui
      */
     @Test
@@ -25,6 +27,15 @@ public class IntegerTest {
         assertEquals(true, a == b);
         assertEquals(true, e == f);
         assertEquals(false, c == d);
+    }
+
+    public static void main(String[] args) {
+        Integer i = 1;
+        Long l0 =Long.valueOf(i);
+        Long l = 1L;
+        System.out.println(l.equals(l0));
+        System.out.println(i.equals(l));
+
     }
 
 }
