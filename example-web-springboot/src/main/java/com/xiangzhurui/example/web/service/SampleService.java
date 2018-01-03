@@ -1,4 +1,4 @@
-package com.xiangzhurui.example.webapp.service;
+package com.xiangzhurui.example.web.service;
 
 import org.springframework.scheduling.annotation.Async;
 

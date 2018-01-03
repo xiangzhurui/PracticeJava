@@ -1,4 +1,4 @@
-package com.xiangzhurui.example.webapp;
+package com.xiangzhurui.example.web;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,6 +1,6 @@
-package com.xiangzhurui.example.webapp.service;
+package com.xiangzhurui.example.web.service;
 
-import com.xiangzhurui.example.webapp.ExampleWebApplicationTests;
+import com.xiangzhurui.example.web.ExampleWebApplicationTests;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;

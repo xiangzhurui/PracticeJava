@@ -1,4 +1,4 @@
-package com.xiangzhurui.example.webapp.config;
+package com.xiangzhurui.example.web.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.client.HttpClient;

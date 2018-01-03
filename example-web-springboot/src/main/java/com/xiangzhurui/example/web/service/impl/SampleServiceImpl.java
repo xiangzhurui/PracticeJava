@@ -1,6 +1,6 @@
-package com.xiangzhurui.example.webapp.service.impl;
+package com.xiangzhurui.example.web.service.impl;
 
-import com.xiangzhurui.example.webapp.service.SampleService;
+import com.xiangzhurui.example.web.service.SampleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
