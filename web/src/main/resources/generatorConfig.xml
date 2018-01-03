@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE generatorConfiguration PUBLIC 
-  "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" 
-  "http://mybatis.org/dtd/mybatis-generator-config.dtd">
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
-    <classPathEntry location="D:/Local/MavenRepository/mysql/mysql-connector-java/5.1.40/mysql-connector-java-5.1.40.jar"></classPathEntry>
+    <classPathEntry location="D:/Local/MavenRepository/mysql/mysql-connector-java/5.1.40/mysql-connector-java-5.1.40.jar"/>
     <context id="localMySQL">
         <commentGenerator>
-            <property name="suppressAllComments" value="true" /><!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
         </commentGenerator>
         <jdbcConnection connectionURL="jdbc:mysql://127.0.0.1:3306/practicedb?useUnicode\=true&amp;setEncoding\=utf8&amp;useSSL\=false"
-            driverClass="com.mysql.jdbc.Driver" password="root" userId="root" />
-        <javaModelGenerator targetPackage="com.xzr.practice.commons.model" targetProject="src/main/java" />
-        <sqlMapGenerator targetPackage="com.xzr.practice.mapping" targetProject="src/main/resources" />
-        <javaClientGenerator targetPackage="com.xzr.practice.dao" targetProject="src/main/java"
-            type="XMLMAPPER" />
-        <table tableName="user" 
-               enableCountByExample="false" 
+                        driverClass="com.mysql.jdbc.Driver"
+                        userId="root"
+                        password="root"/>
+        <javaModelGenerator targetPackage="com.xzr.practice.commons.model" targetProject="src/main/java"/>
+        <sqlMapGenerator targetPackage="com.xzr.practice.mapping" targetProject="src/main/resources"/>
+        <javaClientGenerator targetPackage="com.xzr.practice.dao" targetProject="src/main/java" type="XMLMAPPER"/>
+        <table tableName="user"
+               enableCountByExample="false"
                enableUpdateByExample="false"
-               enableDeleteByExample="false" 
-               enableSelectByExample="false" 
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
                selectByExampleQueryId="false">
             <!-- <columnOverride column="???" property="???" /> -->
         </table>
