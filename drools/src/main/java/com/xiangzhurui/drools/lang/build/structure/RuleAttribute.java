@@ -12,7 +12,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 @EqualsAndHashCode
 @Builder
-public class ScriptRuleAttribute {
+public class RuleAttribute {
 
 
     /**

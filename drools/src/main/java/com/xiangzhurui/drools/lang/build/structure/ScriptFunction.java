@@ -16,7 +16,7 @@ public class ScriptFunction {
     @NonNull
     private String name;
     private String returnType;
-    private ScriptFunctionParam param;
+    private ParamModel param;
     private String content;
 
     @Override

@@ -2,20 +2,24 @@ package com.xiangzhurui.drools.lang.build.structure;
 
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NonNull;
 import org.apache.commons.lang3.StringUtils;
 
 /**
  * 规则
+ *
  * @author xiangzhurui
  * @version 2017/11/29
  */
+@Getter
 @EqualsAndHashCode
 @Builder
 public class ScriptRule {
+    private String pkg;
     @NonNull
     private String name;
-    private ScriptRuleAttribute attribute;
+    private RuleAttribute attribute;
     private String lhs;
     private String rhs;
 
