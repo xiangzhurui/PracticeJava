@@ -20,5 +20,6 @@
         <module>web</module>
         <module>example-web-springboot</module>
         <module>example-dubbo</module>
+        <module>sample-disconf-spring-boot</module>
     </modules>
 </project>
