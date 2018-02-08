@@ -18,7 +18,7 @@
         <java.version>1.8</java.version>
         <slf4j.version>1.7.21</slf4j.version>
         <lo4j2.version>2.8.2</lo4j2.version>
-        <lombok.version>1.16.16</lombok.version>
+        <lombok.version>1.16.20</lombok.version>
 
         <!-- spring -->
         <springframework.version>4.3.10.RELEASE</springframework.version>

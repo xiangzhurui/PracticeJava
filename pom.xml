@@ -13,7 +13,7 @@
         <module>parent</module>
         <module>algorithms</module>
         <module>design-patterns</module>
-        <module>java</module>
+        <module>sample-java</module>
         <module>util</module>
         <module>elasticsearch</module>
         <module>drools</module>
