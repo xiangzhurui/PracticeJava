@@ -12,7 +12,7 @@
 
     <artifactId>example-drools</artifactId>
     <properties>
-        <drools.version>6.5.0.Final</drools.version>
+        <drools.version>7.6.0.Final</drools.version>
     </properties>
     <dependencies>
         <dependency>
@@ -48,6 +48,11 @@
         <dependency>
             <groupId>org.kie</groupId>
             <artifactId>kie-api</artifactId>
+            <version>${drools.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-workbench-models-datamodel-api</artifactId>
             <version>${drools.version}</version>
         </dependency>
         <!-- 与 Spring 集成-->
