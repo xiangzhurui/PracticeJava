@@ -15,7 +15,7 @@
  *
  */
 
-package com.xzr.drools;
+package com.xiangzhurui.drools.drools;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;

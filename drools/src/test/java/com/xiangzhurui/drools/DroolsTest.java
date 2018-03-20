@@ -1,4 +1,4 @@
-package com.xiangzhurui.service;
+package com.xiangzhurui.drools;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Ignore;
