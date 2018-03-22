@@ -1,3 +1,4 @@
+#set($layout="default_layout.vm")
 #set($greet = 'hello')
 $greet $name
 #foreach($i in $list)
