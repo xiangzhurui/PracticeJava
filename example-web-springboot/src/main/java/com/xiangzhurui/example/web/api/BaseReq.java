@@ -1,5 +1,7 @@
 package com.xiangzhurui.example.web.api;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,6 +17,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@JsonNaming(PropertyNamingStrategy.LowerCaseStrategy.class)
 public class BaseReq<T> implements Serializable {
     private static final long serialVersionUID = -5925608867386612809L;
 
