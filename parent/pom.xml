@@ -16,7 +16,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <java.version>1.8</java.version>
-        <slf4j.version>1.7.21</slf4j.version>
+        <slf4j.version>1.7.25</slf4j.version>
         <lo4j2.version>2.8.2</lo4j2.version>
         <lombok.version>1.16.20</lombok.version>
 
@@ -69,8 +69,9 @@
 
         <!-- plugins -->
         <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+        <maven-clean-plugin.version>3.0.0</maven-clean-plugin.version>
         <maven-javadoc-plugin.version>2.10.4</maven-javadoc-plugin.version>
-        <maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
+        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -454,6 +455,21 @@
                         <overwrite>true</overwrite>
                     </configuration>
                 </plugin>
+
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>${maven-clean-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>auto-clean</id>
+                            <phase>initialize</phase>
+                            <goals>
+                                <goal>clean</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
             </plugins>
         </pluginManagement>
     </build>
