@@ -1,4 +1,4 @@
-package com.xiangzhurui.example.web.api;
+package com.xiangzhurui.rest.api;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -21,7 +21,7 @@ import java.util.Date;
 @NoArgsConstructor
 @ToString
 @JsonNaming(PropertyNamingStrategy.LowerCaseStrategy.class)
-public class BaseRsp<T> implements Serializable {
+public class ApiResponse<T> implements Serializable {
     private static final long serialVersionUID = 8789246656912962983L;
 
     private Integer code;

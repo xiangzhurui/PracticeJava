@@ -1,4 +1,4 @@
-package com.xiangzhurui.example.web.api;
+package com.xiangzhurui.rest.api;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -18,7 +18,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @ToString
 @JsonNaming(PropertyNamingStrategy.LowerCaseStrategy.class)
-public class BaseReq<T> implements Serializable {
+public class ApiRequest<T> implements Serializable {
     private static final long serialVersionUID = -5925608867386612809L;
 
     private String token;
