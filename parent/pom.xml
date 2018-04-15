@@ -21,7 +21,7 @@
         <lombok.version>1.16.20</lombok.version>
 
         <!-- spring -->
-        <springframework.version>4.3.10.RELEASE</springframework.version>
+        <springframework.version>4.3.15.RELEASE</springframework.version>
         <spring-data-redis.version>1.8.1.RELEASE</spring-data-redis.version>
         <aspectj.version>1.8.10</aspectj.version>
         <!--mybatis - Since version 3.4.5, The MyBatis has been supported JSR-310(Date and Time API) by default. -->
@@ -168,6 +168,11 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-tx</artifactId>
+                <version>${springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
                 <version>${springframework.version}</version>
             </dependency>
             <dependency>
