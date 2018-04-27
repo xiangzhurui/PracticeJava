@@ -3,41 +3,43 @@ package com.xiangzhurui.drools.engine.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import com.xiangzhurui.drools.engine.enums.DecisionEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * 命中规则
- *
+ * 风险详情结果响应
  * @author xiangzhurui
- * @version 2018/4/26
+ * @version 2018/4/27
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class HitRule implements Serializable {
-    private static final long serialVersionUID = -1931134929830439027L;
+public class RiskResponse implements Serializable {
+    private static final long serialVersionUID = 2888963606195754766L;
 
     /**
-     * 规则ID
+     * 执行是否成功，不成功时对应reason_code
      */
-    private String id;
+    private Boolean success = false;
     /**
-     * 规则名
+     * 错误码及原因描述，正常执行完扫描时为空
      */
-    private String name;
+    private String reasonCode;
     /**
-     * 决策结果：最坏匹配是具有该值
+     * 风险分数
      */
-    private DecisionEnum decision;
+    private Integer finalScore;
     /**
-     * 分数：权重模式时具有该值
+     * 决策结果
      */
-    private int score;
+    private String finalDecision;
+
+    private List<HitPolicy> policySet = new ArrayList<>();
 }
