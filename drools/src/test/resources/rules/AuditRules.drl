@@ -1,0 +1,46 @@
+package com.xiangzhurui.rules.audit;
+
+import java.util.*;
+import org.apache.commons.lang3.*;
+import org.apache.commons.beanutils.*;
+import com.xiangzhurui.drools.engine.facts.AuditFact;
+
+global ConvertUtilsBean2 convertUtilsBean;
+
+declare LoanAuditFact extends AuditFact
+    loanId : Long
+    name : String
+    idCardNo : String
+    idCardType : String
+    customerType : Integer
+end
+
+
+rule "init"
+    salience 10000
+    lock-on-active true
+when
+    $map:Map();
+then
+    LoanAuditFact loanAuditFact = new LoanAuditFact();
+
+    loanAuditFact.setLoanId((Long)$map.get("loanId"));
+    loanAuditFact.setName((String)$map.get("name"));
+    loanAuditFact.setIdCardNo((String)$map.get("idCardNo"));
+    System.out.println(loanAuditFact.getName());
+    insert(loanAuditFact);
+end
+rule "name"
+when
+    LoanAuditFact($N:name=="testName");
+
+    then System.out.println($N);
+end
+rule "destory"
+    salience -10000
+    lock-on-active true
+when
+    $fact:LoanAuditFact();
+then
+    retract($fact);
+end
