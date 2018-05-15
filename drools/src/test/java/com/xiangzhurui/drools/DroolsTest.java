@@ -22,6 +22,7 @@ import org.kie.api.runtime.StatelessKieSession;
 import org.kie.api.runtime.conf.BeliefSystemTypeOption;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 简单示例
@@ -108,15 +109,12 @@ public class DroolsTest {
         KieServices kieServices = KieServices.Factory.get();
 
 
-
-
         // 创建一个 KieFileSystem
         KieFileSystem fileSystem = kieServices.newKieFileSystem();
         // 创建一个 KieResources 对象
         KieResources kieResources = kieServices.getResources();
 
         // 1. 先创建 KieModuleModel, 类似于xml中的 kmodule 节点
-
 
 
         KieModuleModel kieModuleModel = kieServices.newKieModuleModel();
@@ -130,12 +128,15 @@ public class DroolsTest {
 
         baseModel.addPackage("rules1");
 
-        kieModuleModel.newKieBaseModel("audit-rule-base")
-                .addPackage("rules.one")
-                .newKieSessionModel("audit-session-one")
-                .setType(KieSessionModel.KieSessionType.STATEFUL)
-//        .setBeliefSystem(BeliefSystemTypeOption.get("rules/one"))
-        ;
+        KieBaseModel auditRuleBaseModel =
+                kieModuleModel.newKieBaseModel("audit-rule-base");
+        KieBaseModel ruleOneBase = auditRuleBaseModel
+                .addPackage("rules.one");
+        ruleOneBase.newKieSessionModel("audit-session-one")
+                .setType(KieSessionModel.KieSessionType.STATEFUL);
+        ruleOneBase.newKieSessionModel("audit-session-one-less")
+                .setType(KieSessionModel.KieSessionType.STATELESS);
+
         ReleaseId releaseId = kieServices.newReleaseId("com.xzr", "rules.test", "1.0.0");
         KieRepository kieRepository = kieServices.getRepository();
         kieRepository.addKieModule(new KieModule() {
@@ -144,8 +145,6 @@ public class DroolsTest {
                 return releaseId;
             }
         });
-
-
 
 
         // 4. 生产一个xml文件，就是kmodule.xml文件
@@ -175,13 +174,19 @@ public class DroolsTest {
         KieSession kieSession = kieContainer.newKieSession("audit-session-one");
         // 向 workingMemory 中加入一个对象
 //        kieSession.insert("Tom");
-        kieSession.insert(new HashMap() {{
+
+        Map mapFact = new HashMap() {{
             put("name", "testName");
             put("loanId", 123L);
             put("idCardNo", "StringTest");
-        }});
+        }};
+        kieSession.insert(mapFact);
         // 通知规则引擎执行规则
         kieSession.fireAllRules();
         kieSession.dispose();
+
+        StatelessKieSession statelessKieSession = kieContainer.newStatelessKieSession("audit-session-one-less");
+        statelessKieSession.execute(mapFact);
+
     }
 }
