@@ -1,6 +1,7 @@
 package com.xiangzhurui.drools;
 
 import com.xiangzhurui.drools.domain.Person;
+import com.xiangzhurui.drools.domain.RouterFact;
 import lombok.extern.slf4j.Slf4j;
 import org.appformer.maven.support.PomModel;
 import org.assertj.core.util.Lists;
@@ -147,17 +148,20 @@ public class DroolsTest {
         List globalList = Lists.newArrayList(1, 2, 3, 4, 5);
         cmds.add(CommandFactory.newSetGlobal("globalList", globalList, true));
         cmds.add(CommandFactory.newInsert(new Person("jon", 102), "person"));
-        cmds.add(CommandFactory.newSetGlobal("log", log));
-//        cmds.add(CommandFactory.newSetGlobal("log", LoggerFactory.getLogger("com.tongbanjie.risk.event.loan.script")));
+        cmds.add(CommandFactory.newInsert(new RouterFact(2), "routerFact"));
+//        cmds.add(CommandFactory.newSetGlobal("log", log));
+        cmds.add(CommandFactory.newSetGlobal("log", LoggerFactory.getLogger("drl.exe")));
 
         BatchExecutionCommand kieCommands = CommandFactory.newBatchExecution(cmds);
 //        ksession.execute(kieCommands);
         ExecutionResults results = ksession.execute(kieCommands);
         Object o = results.getValue("globalList"); //返回ArrayList
         Object o1 = results.getValue("person"); //返回插入的事实Person
+        Object routerFact = results.getValue("routerFact"); //返回插入的事实Person
 //        results.getValue("Get People"); //将查询作为QueryResults实例返回。
         log.info("o:[{}]", o);
         log.info("o1:[{}]", o1);
+        log.info("routerFact:[{}]", routerFact);
     }
 
     @Before
