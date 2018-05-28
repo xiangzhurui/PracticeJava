@@ -1,0 +1,16 @@
+package com.xzr.test.person;
+
+import java.util.List;
+import com.xiangzhurui.drools.domain.Person;
+import org.slf4j.Logger;
+
+global List globalList;
+global Logger log;
+
+rule "test-persion"
+when
+    Person(age>100);
+then
+    log.info("globalList===={}",globalList);
+    log.info("ruleName===={}",kcontext.getRule().getName());
+ end
