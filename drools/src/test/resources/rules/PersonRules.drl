@@ -1,13 +1,21 @@
 package com.xzr.test.person;
 
-
 import java.util.List;
+import java.math.BigDecimal;
 import com.xiangzhurui.drools.domain.Person;
 import com.xiangzhurui.drools.domain.RouterFact;
 import org.slf4j.Logger;
+import com.google.gson.*;
+import java.util.*;
 
 global List globalList;
 global Logger log;
+
+declare DefinePerson
+ gender : Integer
+ companyName : String
+ annualIncome : BigDecimal
+end
 
 rule "test-persion"
 when
@@ -25,13 +33,17 @@ then
  then
  log.info("ruleName===={}",kcontext.getRule().getName());
   kcontext.getKieRuntime().getAgenda().getAgendaGroup("agenda-one").setFocus();
-  end rule "test-rout1"
+  end
+
+   rule "test-rout1"
 
  lock-on-active true
  when
     RouterFact(routTag==2);
  then
- log.info("ruleName===={}",kcontext.getRule().getName());
+ org.drools.core.definitions.rule.impl.RuleImpl curRule = kcontext.getRule();
+ log.info("ruleName===={}",curRule.getName());
+ log.info("agendaGroup===={}",curRule.getAgendaGroup());
   kcontext.getKieRuntime().getAgenda().getAgendaGroup("agenda-2").setFocus();
   end
 
@@ -39,7 +51,8 @@ then
  agenda-group "agenda-one"
  lock-on-active true
  when
-    Person(age>100);
+    Person(age>100&&);
+
  then
     log.info("ruleName===={}",kcontext.getRule().getName());
 

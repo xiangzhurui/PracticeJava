@@ -21,6 +21,7 @@ import org.kie.api.command.BatchExecutionCommand;
 import org.kie.api.command.Command;
 import org.kie.api.command.KieCommands;
 import org.kie.api.conf.EqualityBehaviorOption;
+import org.kie.api.definition.type.FactType;
 import org.kie.api.io.KieResources;
 import org.kie.api.io.Resource;
 import org.kie.api.runtime.ExecutionResults;
@@ -31,6 +32,7 @@ import org.kie.api.runtime.conf.BeliefSystemTypeOption;
 import org.kie.internal.command.CommandFactory;
 import org.slf4j.LoggerFactory;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -137,6 +139,45 @@ public class DroolsTest {
 
         StatelessKieSession statelessKieSession = kieContainer.newStatelessKieSession("audit-session-one-less");
         statelessKieSession.execute(mapFact);
+
+    }
+
+    @Test
+    public void testDefineFaceInDrl() throws IllegalAccessException, InstantiationException {
+        // 自定义对象
+
+        // get a reference to a knowledge base with a declared type:
+        KieBase kbase = kieContainer.getKieBase("audit.rule.base");
+
+        // get the declared FactType
+        FactType personType = kbase.getFactType("com.xzr.test.person", "DefinePerson");
+
+        // handle the type as necessary:
+        // create instances:
+        Object bob = personType.newInstance();
+
+        // set attributes values
+        personType.set(bob,
+                "gender",
+                1);
+        personType.set(bob,
+                "companyName",
+                "不具名公司");
+        personType.set(bob, "annualIncome", new BigDecimal("123"));
+
+        // insert fact into a session
+        KieSession ksession = kieContainer.newKieSession("audit-session-one");
+        ksession.insert(bob);
+        ksession.fireAllRules();
+
+        // read attributes
+        Integer gender = (Integer) personType.get(bob, "gender");
+        String companyName = (String) personType.get(bob, "companyName");
+        BigDecimal bigDecimal = (BigDecimal) personType.get(bob, "annualIncome");
+
+        log.info("gender==={}", gender);
+        log.info("companyName==={}", companyName);
+        log.info("bigDecimal==={}", bigDecimal);
 
     }
 
