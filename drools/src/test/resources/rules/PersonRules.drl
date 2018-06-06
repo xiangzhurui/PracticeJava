@@ -51,7 +51,7 @@ then
  agenda-group "agenda-one"
  lock-on-active true
  when
-    Person(age>100&&);
+    Person(age>100);
 
  then
     log.info("ruleName===={}",kcontext.getRule().getName());

@@ -1,10 +1,8 @@
-/* ......................................................................................... */
 
 import java.io.*;
 import java.util.*;
 import java.util.concurrent.*;
 
-/* ......................................................................................... */
 public class WordCounter {
 
 
@@ -67,7 +65,7 @@ public class WordCounter {
 
     /* ......................................................................................... */
 
-    public class WordCounter {
+    public static class InnerWordCounter {
 
         /* ......................................................................................... */
 
@@ -162,7 +160,7 @@ public class WordCounter {
         /* ......................................................................................... */
 
         public static void main(String[] args) throws IOException {
-            WordCounter wordCounter = new WordCounter();
+            InnerWordCounter wordCounter = new InnerWordCounter();
             Folder folder = Folder.fromDirectory(new File(args[0]));
 
             final int repeatCount = Integer.decode(args[2]);
@@ -198,4 +196,3 @@ public class WordCounter {
         }
     }
 }
-/* ......................................................................................... */

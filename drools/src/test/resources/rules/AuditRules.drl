@@ -7,7 +7,7 @@ import com.xiangzhurui.drools.engine.facts.AuditFact;
 
 global ConvertUtilsBean2 convertUtilsBean;
 
-declare LoanAuditFact extends AuditFact
+declare LoanAuditFact
     loanId : Long
     name : String
     idCardNo : String
