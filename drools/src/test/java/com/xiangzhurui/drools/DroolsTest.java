@@ -48,7 +48,6 @@ import java.util.Map;
 public class DroolsTest {
     private KieContainer kieContainer;
 
-
     @Test
     public void testKieModuleModel() {
         KieServices kieServices = KieServices.Factory.get();
@@ -203,6 +202,48 @@ public class DroolsTest {
         log.info("o:[{}]", o);
         log.info("o1:[{}]", o1);
         log.info("routerFact:[{}]", routerFact);
+    }
+
+    @Test
+    public void newVersion() {
+        KieSession session0 =kieContainer.newKieSession("ksession-rules");
+        session0.fireAllRules();
+        session0.dispose();
+        buildNewVersion();
+        kieContainer.updateToVersion(KieServices.Factory.get().newReleaseId("com.xzr", "rules.test", "2.0.0"));
+        KieSession session1 =kieContainer.newKieSession("ksession-rules");
+        session1.fireAllRules();
+        session1.dispose();
+    }
+
+    private void buildNewVersion() {
+        KieServices kieServices = KieServices.Factory.get();
+
+
+        // 创建一个 KieResources 对象
+        KieResources resources = kieServices.getResources();
+        Resource test1Resource = resources.newClassPathResource("rules/test1.drl");
+        KieFileSystem fileSystem = kieServices.newKieFileSystem();
+        ReleaseId releaseId = kieServices.newReleaseId("com.xzr", "rules.test", "2.0.0");
+
+        KieModuleModel kieModuleModel = kieServices.newKieModuleModel();
+
+        // 2. 再创建 KieBaseModel, 类似于xml中的 kbase节点, name=kbase-rules, package=rules
+        KieBaseModel baseModel = kieModuleModel.newKieBaseModel("kbase-rules").addPackage("rules");
+        // 3. 再创建 KieSessionModel, 类似于xml中的 ksession 节点, name=ksession-rules
+        baseModel.newKieSessionModel("ksession-rules");
+        baseModel.newKieSessionModel("audit-session");
+
+        log.info("verion2xml:\n{}", kieModuleModel.toXML());
+        fileSystem.writeKModuleXML(kieModuleModel.toXML());
+        fileSystem.generateAndWritePomXML(releaseId);
+        fileSystem.write(test1Resource);
+
+        KieBuilder kieBuilder=kieServices.newKieBuilder(fileSystem).buildAll();
+log.info("---{}",kieBuilder);
+ReleaseId
+        releas = kieServices.getRepository().getKieModule(kieServices.newReleaseId("com.xzr", "rules.test", "1.0.0")).getReleaseId();
+log.info(releas.toExternalForm());
     }
 
     @Before

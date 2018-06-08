@@ -41,9 +41,8 @@ then
  when
     RouterFact(routTag==2);
  then
- org.drools.core.definitions.rule.impl.RuleImpl curRule = kcontext.getRule();
- log.info("ruleName===={}",curRule.getName());
- log.info("agendaGroup===={}",curRule.getAgendaGroup());
+ log.info("ruleName===={}",kcontext.getRule().getName());
+// log.info("agendaGroup===={}",kcontext.getRule().getAgendaGroup());
   kcontext.getKieRuntime().getAgenda().getAgendaGroup("agenda-2").setFocus();
   end
 

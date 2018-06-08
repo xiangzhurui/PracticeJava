@@ -7,7 +7,7 @@ rule "hello"
         System.out.println("hello " + $name);
 end
 
-rule "version-0"
+rule "version-1"
 when
 eval(true);
 then
