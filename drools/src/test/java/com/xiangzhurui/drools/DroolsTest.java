@@ -206,12 +206,12 @@ public class DroolsTest {
 
     @Test
     public void newVersion() {
-        KieSession session0 =kieContainer.newKieSession("ksession-rules");
+        KieSession session0 = kieContainer.newKieSession("ksession-rules");
         session0.fireAllRules();
         session0.dispose();
         buildNewVersion();
         kieContainer.updateToVersion(KieServices.Factory.get().newReleaseId("com.xzr", "rules.test", "2.0.0"));
-        KieSession session1 =kieContainer.newKieSession("ksession-rules");
+        KieSession session1 = kieContainer.newKieSession("ksession-rules");
         session1.fireAllRules();
         session1.dispose();
     }
@@ -239,11 +239,10 @@ public class DroolsTest {
         fileSystem.generateAndWritePomXML(releaseId);
         fileSystem.write(test1Resource);
 
-        KieBuilder kieBuilder=kieServices.newKieBuilder(fileSystem).buildAll();
-log.info("---{}",kieBuilder);
-ReleaseId
-        releas = kieServices.getRepository().getKieModule(kieServices.newReleaseId("com.xzr", "rules.test", "1.0.0")).getReleaseId();
-log.info(releas.toExternalForm());
+        KieBuilder kieBuilder = kieServices.newKieBuilder(fileSystem).buildAll();
+        log.info("---{}", kieBuilder);
+        ReleaseId version_2 = kieServices.getRepository().getKieModule(kieServices.newReleaseId("com.xzr", "rules.test", "1.0.0")).getReleaseId();
+        log.info(version_2.toExternalForm());
     }
 
     @Before
