@@ -26,10 +26,10 @@ public class DownLoadController {
         FileSystemResource file = new FileSystemResource(filePath);
         HttpHeaders headers = new HttpHeaders();
         headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
-        String fileNameStr = String.format("attachment; filename=\"%s\"", file.getFilename());
-        headers.add("Content-Disposition", URLEncoder.encode(fileNameStr, "UTF-8"));
-        headers.add("Pragma", "no-cache");
-        headers.add("Expires", "0");
+        String fileNameStr = String.format("filename=\"%s\"", file.getFilename());
+        headers.setContentDispositionFormData("attachment", URLEncoder.encode(fileNameStr, "UTF-8"));
+        headers.setPragma( "no-cache");
+        headers.setExpires(0L);
 
         return ResponseEntity
                 .ok()
