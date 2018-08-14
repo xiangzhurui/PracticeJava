@@ -11,6 +11,7 @@
     <name>PracticeJava</name>
     <modules>
         <module>parent</module>
+        <module>util-drools-lang</module>
         <module>util</module>
         <module>sample-java</module>
         <module>algorithms</module>
@@ -20,6 +21,5 @@
         <module>web</module>
         <module>example-web-springboot</module>
         <module>example-dubbo</module>
-        <module>sample-disconf-spring-boot</module>
     </modules>
 </project>
