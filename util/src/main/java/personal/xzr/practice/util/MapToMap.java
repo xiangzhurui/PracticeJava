@@ -30,7 +30,7 @@ public class MapToMap {
 
         for (String className : classNameSet) {
             Method method = this.getClass().getMethod("get" + className, new Class[]{});
-            Object obj = method.invoke(this, null);
+            Object obj = method.invoke(this);
             nameObjectMap.put(className, obj);
         }
         Map<String, Object> out = new HashMap<>();
