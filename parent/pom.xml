@@ -124,12 +124,6 @@
 				<version>${mockito.version}</version>
 				<scope>test</scope>
 			</dependency>
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-test</artifactId>
-				<version>${springframework.version}</version>
-				<scope>test</scope>
-			</dependency>
 			<!-- 数据库连接相关 -->
 			<dependency>
 				<groupId>mysql</groupId>
