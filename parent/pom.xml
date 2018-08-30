@@ -22,7 +22,7 @@
 		<lombok.version>1.16.20</lombok.version>
 
 		<!-- spring -->
-		<springframework.version>4.3.15.RELEASE</springframework.version>
+		<spring-framework.version>4.3.18.RELEASE</spring-framework.version>
 		<spring-data-redis.version>1.8.1.RELEASE</spring-data-redis.version>
 		<aspectj.version>1.8.10</aspectj.version>
 		<!--mybatis - Since version 3.4.5, The MyBatis has been supported JSR-310(Date 
@@ -73,6 +73,8 @@
 		<maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
 		<maven-javadoc-plugin.version>2.10.4</maven-javadoc-plugin.version>
 		<maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+
+		<jackson.version>2.9.6</jackson.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -143,53 +145,10 @@
 			<!-- 应用框架 -->
 			<dependency>
 				<groupId>org.springframework</groupId>
-				<artifactId>spring-expression</artifactId>
-				<version>${springframework.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-context</artifactId>
-				<version>${springframework.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-context-support</artifactId>
-				<version>${springframework.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-core</artifactId>
-				<version>${springframework.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-beans</artifactId>
-				<version>${springframework.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-tx</artifactId>
-				<version>${springframework.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-web</artifactId>
-				<version>${springframework.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-webmvc</artifactId>
-				<version>${springframework.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-websocket</artifactId>
-				<version>${springframework.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-jdbc</artifactId>
-				<version>${springframework.version}</version>
+				<artifactId>spring-framework-bom</artifactId>
+				<version>${spring-framework.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
 			</dependency>
 			<dependency>
 				<groupId>redis.clients</groupId>
@@ -278,14 +237,11 @@
 				<version>${joda-time.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.fasterxml</groupId>
-				<artifactId>jackson-xml-databind</artifactId>
-				<version>0.6.2</version>
-			</dependency>
-			<dependency>
-				<groupId>com.fasterxml.jackson.core</groupId>
-				<artifactId>jackson-databind</artifactId>
-				<version>2.8.5</version>
+				<groupId>com.fasterxml.jackson</groupId>
+				<artifactId>jackson-bom</artifactId>
+				<version>${jackson.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
 			</dependency>
 			<dependency>
 				<groupId>com.google.code.gson</groupId>
