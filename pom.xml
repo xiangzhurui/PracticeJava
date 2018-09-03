@@ -17,7 +17,6 @@
         <module>algorithms</module>
         <module>design-patterns</module>
         <module>elasticsearch</module>
-        <module>drools</module>
         <module>web</module>
         <module>example-web-springboot</module>
     </modules>
