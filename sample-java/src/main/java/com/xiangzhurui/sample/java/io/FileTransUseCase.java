@@ -1,14 +1,19 @@
 package com.xiangzhurui.sample.java.io;
 
 import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class FileTransUseCase {
 
+	private static final String USER_HOME_DIR = System.getProperty("user.home");
+	private static final Path DOWNLOADS_DIR_PATH = Paths.get(USER_HOME_DIR,"Downloads");
+
 	public static void main(String[] args) {
-		File f = new File("D:\\Downloads\\");
+		File f = DOWNLOADS_DIR_PATH.toFile();
 		List<File> files = getAllFileInDir(f);
 		for (File file : files) {
 			System.out.println(file);
