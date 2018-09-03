@@ -20,6 +20,5 @@
         <module>drools</module>
         <module>web</module>
         <module>example-web-springboot</module>
-        <module>example-dubbo</module>
     </modules>
 </project>
