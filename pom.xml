@@ -18,6 +18,5 @@
         <module>design-patterns</module>
         <module>elasticsearch</module>
         <module>web</module>
-        <module>example-web-springboot</module>
     </modules>
 </project>
