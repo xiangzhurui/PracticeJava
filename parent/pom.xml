@@ -22,7 +22,7 @@
 		<lombok.version>1.16.20</lombok.version>
 
 		<!-- spring -->
-		<spring-framework.version>4.3.18.RELEASE</spring-framework.version>
+		<spring-framework.version>4.3.19.RELEASE</spring-framework.version>
 		<spring-data-redis.version>1.8.1.RELEASE</spring-data-redis.version>
 		<aspectj.version>1.8.10</aspectj.version>
 		<!--mybatis - Since version 3.4.5, The MyBatis has been supported JSR-310(Date 
@@ -72,7 +72,7 @@
 		<maven-source-plugin.version>3.0.1</maven-source-plugin.version>
 		<maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
 		<maven-javadoc-plugin.version>2.10.4</maven-javadoc-plugin.version>
-		<maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+		<maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
 
 		<jackson.version>2.9.6</jackson.version>
 	</properties>
