@@ -11,12 +11,10 @@
     <name>PracticeJava</name>
     <modules>
         <module>parent</module>
-        <module>util-drools-lang</module>
         <module>util</module>
         <module>sample-java</module>
         <module>algorithms</module>
         <module>design-patterns</module>
-        <module>elasticsearch</module>
         <module>web</module>
     </modules>
 </project>
