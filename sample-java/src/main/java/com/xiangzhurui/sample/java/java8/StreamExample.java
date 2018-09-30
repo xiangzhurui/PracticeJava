@@ -1,3 +1,5 @@
+package com.xiangzhurui.sample.java.java8;
+
 import java.util.List;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
