@@ -1,58 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
-       xmlns:util="http://www.springframework.org/schema/util" xmlns:aop="http://www.springframework.org/schema/aop"
-       xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
-		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
-		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
-		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
-		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
-    <context:property-placeholder location="classpath:application.properties"/>
-    <!--<context:property-placeholder location="classpath:properites/**.properties"/>-->
-    <context:component-scan base-package="personal.xzr.practice">
-        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-    </context:component-scan>
-    <aop:aspectj-autoproxy/>
-    <!-- 数据源 -->
-    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
-        <property name="driverClassName" value="${jdbc.driverClassName}"></property>
-        <property name="url" value="${jdbc.url}"></property>
-        <property name="username" value="${jdbc.username}"></property>
-        <property name="password" value="${jdbc.password}"></property>
-        <property name="initialSize" value="${dbcp2.initialSize}"/>
-        <property name="maxIdle" value="${dbcp2.maxIdle}"/>
-        <property name="minIdle" value="${dbcp2.minIdle}"/>
-        <property name="maxWaitMillis" value="${dbcp2.maxWaitMillis}"/>
-        <property name="validationQuery" value="${dbcp2.validationQuery}"/>
-        <property name="testOnReturn" value="${dbcp2.testOnReturn}"/>
-        <property name="testWhileIdle" value="${dbcp2.testWhileIdle}"/>
-    </bean>
-    <!-- 事务管理器 -->
-    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"></property>
-        <property name="mapperLocations" value="classpath*:personal/xzr/practice/web/repository/mapping/*.xml"/>
-        <property name="plugins">
-            <array>
-                <!--mybatis 分页插件-->
-                <bean class="com.github.pagehelper.PageInterceptor">
-                    <property name="properties">
-                        <!--使用下面的方式配置参数，一行配置一个-->
-                        <value>helperDialect=mysql</value>
-                    </property>
-                </bean>
-            </array>
-        </property>
-    </bean>
-    <!-- mybatis 包扫描 -->
-    <mybatis-spring:scan base-package="personal.xzr.practice.web.repository"/>
-    <!-- 启用声明式事务 -->
-    <tx:annotation-driven/>
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+                           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+                           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+  <context:property-placeholder location="classpath:application.properties"/>
+  <!--<context:property-placeholder location="classpath:properites/**.properties"/>-->
+  <context:component-scan base-package="personal.xzr.practice">
+    <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+  </context:component-scan>
+  <aop:aspectj-autoproxy/>
+  <!-- 数据源 -->
+  <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+    <property name="driverClassName" value="${jdbc.driverClassName}"></property>
+    <property name="url" value="${jdbc.url}"></property>
+    <property name="username" value="${jdbc.username}"></property>
+    <property name="password" value="${jdbc.password}"></property>
+    <property name="initialSize" value="${dbcp2.initialSize}"/>
+    <property name="maxIdle" value="${dbcp2.maxIdle}"/>
+    <property name="minIdle" value="${dbcp2.minIdle}"/>
+    <property name="maxWaitMillis" value="${dbcp2.maxWaitMillis}"/>
+    <property name="validationQuery" value="${dbcp2.validationQuery}"/>
+    <property name="testOnReturn" value="${dbcp2.testOnReturn}"/>
+    <property name="testWhileIdle" value="${dbcp2.testWhileIdle}"/>
+  </bean>
+  <!-- 事务管理器 -->
+  <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <property name="dataSource" ref="dataSource"/>
+  </bean>
+  <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <property name="dataSource" ref="dataSource"></property>
+    <property name="mapperLocations" value="classpath*:personal/xzr/practice/web/repository/mapping/*.xml"/>
+    <property name="plugins">
+      <array>
+        <!--mybatis 分页插件-->
+        <bean class="com.github.pagehelper.PageInterceptor">
+          <property name="properties">
+            <!--使用下面的方式配置参数，一行配置一个-->
+            <value>helperDialect=mysql</value>
+          </property>
+        </bean>
+      </array>
+    </property>
+  </bean>
+  <!-- mybatis 包扫描 -->
+  <mybatis-spring:scan base-package="personal.xzr.practice.web.repository"/>
+  <!-- 启用声明式事务 -->
+  <tx:annotation-driven/>
 </beans>
