@@ -12,10 +12,10 @@
   <name>PracticeJava</name>
   <modules>
     <module>parent</module>
-    <module>sample-java</module>
+    <module>java-core</module>
+    <module>java-web</module>
     <module>algorithms</module>
     <module>design-patterns</module>
-    <module>web</module>
   </modules>
 
   <properties>
