@@ -12,7 +12,7 @@ import javax.sql.DataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.xiangzhurui.core.java.util.PropertiesUtil;
+import com.xiangzhurui.core.util.PropertiesUtil;
 
 /**
  * 调用示例：
