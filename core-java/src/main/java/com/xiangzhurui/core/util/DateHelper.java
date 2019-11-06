@@ -1,4 +1,4 @@
-package com.xiangzhurui.core.java.time;
+package com.xiangzhurui.core.util;
 
 import java.time.Instant;
 import java.time.LocalDate;
