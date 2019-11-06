@@ -16,8 +16,8 @@ import java.util.Objects;
  * @author xiangzhurui
  * @version 2019-05-08
  */
-public final class DateHelper {
-    private DateHelper() {
+public final class TimeHelper {
+    private TimeHelper() {
     }
 
     private final static ZoneId defaultZoneId = ZoneId.systemDefault();
