@@ -14,9 +14,9 @@ import org.slf4j.LoggerFactory;
  *
  * @author XiangZhuRui
  */
-public class PropertiesUtil {
+public class PropertiesLoader {
 
-  private static final Logger log = LoggerFactory.getLogger(PropertiesUtil.class);
+  private static final Logger log = LoggerFactory.getLogger(PropertiesLoader.class);
 
   public static Properties loadPath(String filePath) {
     InputStream inStream = null;
