@@ -11,8 +11,8 @@
 
   <name>PracticeJava</name>
   <modules>
+    <module>core-java</module>
     <module>parent</module>
-    <module>java-core</module>
     <module>java-web</module>
     <module>algorithms</module>
     <module>design-patterns</module>
