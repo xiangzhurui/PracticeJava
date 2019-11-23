@@ -1,4 +1,4 @@
-package personal.xzr.practice.algorithms.search;
+package com.xiangzr.practice.algorithms.search;
 
 /**
  * 二分查找

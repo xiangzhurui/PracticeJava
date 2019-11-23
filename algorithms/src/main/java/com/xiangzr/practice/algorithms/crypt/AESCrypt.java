@@ -1,4 +1,4 @@
-package personal.xzr.practice.algorithms.crypt;
+package com.xiangzr.practice.algorithms.crypt;
 
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;

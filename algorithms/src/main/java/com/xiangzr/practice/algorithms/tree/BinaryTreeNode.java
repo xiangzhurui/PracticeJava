@@ -1,4 +1,4 @@
-package personal.xzr.practice.algorithms.tree;
+package com.xiangzr.practice.algorithms.tree;
 
 /**
  * 二叉树节点

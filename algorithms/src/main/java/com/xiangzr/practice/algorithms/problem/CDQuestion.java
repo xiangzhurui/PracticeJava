@@ -1,4 +1,4 @@
-package personal.xzr.practice.algorithms.problem;
+package com.xiangzr.practice.algorithms.problem;
 
 public class CDQuestion {
 
@@ -20,6 +20,5 @@ public class CDQuestion {
             int r = p % q;
             return gcd(q, r);
         }
-
-    }
+     }
 }

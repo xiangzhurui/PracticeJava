@@ -1,4 +1,4 @@
-package personal.xzr.practice.algorithms.tree;
+package com.xiangzr.practice.algorithms.tree;
 
 import java.util.ArrayList;
 import java.util.Iterator;
