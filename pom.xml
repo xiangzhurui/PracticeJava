@@ -73,7 +73,7 @@
 
     <!-- elasticsearch -->
     <!--2018年2月6日发布基于 Lucene 7.2.1 的 Elasticsearch 6.2.0 。 https://www.elastic.co/blog/elasticsearch-6-2-0-released -->
-    <elasticsearch.version>6.2.0</elasticsearch.version>
+    <elasticsearch.version>6.8.15</elasticsearch.version>
     <lucene.version>7.2.1</lucene.version>
 
     <!-- plugins -->
