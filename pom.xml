@@ -53,7 +53,7 @@
 
     <!-- Apache Commons -->
     <commons-dbcp2.version>2.1.1</commons-dbcp2.version>
-    <commons-net.version>3.5</commons-net.version>
+    <commons-net.version>3.9.0</commons-net.version>
     <commons-codec.version>1.10</commons-codec.version>
 
     <commons-csv.version>1.4</commons-csv.version>
